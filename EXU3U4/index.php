@@ -22,7 +22,7 @@
   <body style="background-color: #e1e2e2">
       <div class="container-fluid">
             <div class="jumbotron-fluid" style="background-color: rgb(71, 13, 59);">
-                <h1 class="text-center" style="color: white;">Examen Unidades 3 y 4</h1>
+                <h1 class="text-center" style="color: white;">Pagina de articulos</h1>
             </div>
       
       <nav class="navbar navbar-expand-md navbar-dark" style="background-color: rgb(117, 117, 117);">
