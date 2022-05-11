@@ -77,7 +77,7 @@ if (!$conn) {
     if ($resultado->num_rows == 1) {
         session_start();
        $nombreUsuario = mysqli_fetch_assoc($resultado);
-        $_SESSION['nombre'] = $nombreUsuario["nombre"];
+        $_SESSION['nombre'] = $nombreUsuario["nom"];
         $_SESSION['usuario'] = $nombreUsuario;
         //$parts = explode('@', $_SESSION['usuario']['correo']);
         //$domain = "@" . $parts[1];
