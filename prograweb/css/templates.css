@@ -1,25 +1,25 @@
 header, footer{    
-    background-color: #9D5C0D;
+    background-color: #0d939dc4;
 }
 
 
 .bg-prim{
-    background-color: #9D5C0D;
+    background-color: #0a81b1;
     color: white;
 }
 .bg-second{
-    background-color: #F7D08A;
-    color: #E5890A;
+    background-color: #1e68f1;
+    color: #0a8de5;
 }
 
 .card-second{
-    background-color: #F7D08A;
-    color: #E5890A;
-    border-color: #9D5C0D;
+    background-color: #8af7ee;
+    color: #0a70e5;
+    border-color: #0d2f9d;
 }
 
 body{
-    background-color: #F7D08A;
+    background-color: #8af7f7;
 }
 
 footer {
