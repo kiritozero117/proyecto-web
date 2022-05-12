@@ -29,27 +29,26 @@
             <div class="carousel-inner">
 
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="img/dilettante.jpg" height="728px" width="410px" alt="First slide">
+                    <img class="d-block w-100" src="img/opt.jpg" height="728px" width="410px" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Le Dilettante</h5>
-                        <p>"librería especializada en libros del sigo XX y poco comunes."</p>
+                        <h5>Reflexion del rayo</h5>
+                        <p>"Cambia tu forma de ver las cosas"</p>
                     </div>
                 </div>
 
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="img/berkeley.jpg" height="686px" width="386px" alt="Second slide">
+                    <img class="d-block w-100" src="img/ae.jpg" height="686px" width="386px" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Berkeley Books of Paris</h5>
-                        <p>"El hogar reside allá donde lo hace el corazón"</p>
+                        <h5>Aeronautica</h5>
+                        <p>"Solo en la oscuridad brilla la luz"</p>
                     </div>
                 </div>
 
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="img/ofr.jpg" alt="Third slide">
+                    <img class="d-block w-100" src="img/af.jpg" alt="Third slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>OFR</h5>
-                        <p>"Librería especializada en moda
-                            y diseño"</p>
+                        <h5>Astrofisica</h5>
+                        <p>"Asomate al universo"</p>
                     </div>
                 </div>
             </div>
