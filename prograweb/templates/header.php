@@ -65,9 +65,9 @@ session_start();
                     <li class="nav-item dropdown active">                    
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
                         <div class="dropdown-menu dropdown-menu-sm-right" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="destino.php">Termodinamica</a>
-                            <a class="dropdown-item" href="paso.php">Optica</a>
-                            <a class="dropdown-item" href="paso.php">Astrofisica</a>                        
+                            <a class="dropdown-item" href="termodinamica.php">Termodinamica</a>
+                            <a class="dropdown-item" href="optica.php">Optica</a>
+                            <a class="dropdown-item" href="astro.php">Astrofisica</a>                        
                         </div>                    
                     </li>          
                 </ul>
