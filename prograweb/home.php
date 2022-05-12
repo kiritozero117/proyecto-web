@@ -2,8 +2,8 @@
 <html lang="es">
 
 <head>
-    <title>Rome Blog</title>
-    <link rel="icon" type="image/png" href="../../img/icono.png" />
+    <title>Librairie Blog</title>
+    <link rel="icon" type="image/png" href="../../img/lib.png" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -20,7 +20,7 @@
 
     <div class="text-center">
             <h1 aling="center"><b><i>BIENVENIDO</i></b></h1>
-            <h2 aling="center"><b><i>Blog acerca de edificios historicos en la ciudad de Roma</i></b></h2>
+            <h2 aling="center"><b><i>Blog acerca de Libros y escritores galardonados</i></b></h2>
             <hr class="my-4">
     </div>
 
