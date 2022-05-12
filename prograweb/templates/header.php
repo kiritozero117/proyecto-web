@@ -33,7 +33,7 @@ session_start();
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <!-- Brand -->
-                <a class="navbar-brand" href="/home.php"><img src="img/lib.png" alt="logo" width="125px" height="60px"></a>
+                <a class="navbar-brand" href="home.php"><img src="img/lib.png" alt="logo" width="125px" height="60px"></a>
                 <h1>Librairie Blog</h1>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 </ul> 
@@ -57,16 +57,17 @@ session_start();
             <div class="collapse navbar-collapse " id="collapsibleNavbar">
                 <ul class="navbar-nav mr-auto ">
                     <li class="nav-item active">
-                        <a class="nav-link" id="btnInicio" href="/home.php">Inicio</a>
+                        <a class="nav-link" id="btnInicio" href="home.php">Inicio</a>
                     </li>
                     <li class="nav-item active">
-                        <a id="btnArticulos" class="nav-link" href="http://localhost/EXU5/Completo/prograweb/articulos.php">Artículos</a>
+                        <a id="btnArticulos" class="nav-link" href="articulos.php">Artículos</a>
                     </li>          
                     <li class="nav-item dropdown active">                    
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
                         <div class="dropdown-menu dropdown-menu-sm-right" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="/destino.php">Monumentos Destino</a>
-                            <a class="dropdown-item" href="/paso.php">Monumentos de Paso</a>                        
+                            <a class="dropdown-item" href="destino.php">Termodinamica</a>
+                            <a class="dropdown-item" href="paso.php">Optica</a>
+                            <a class="dropdown-item" href="paso.php">Astrofisica</a>                        
                         </div>                    
                     </li>          
                 </ul>
