@@ -48,7 +48,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $row['id']; ?></h5>
                     <p class="card-text"><?php echo $row['nombre']; ?></p>
-                    <a href="http://localhost/proyecto-web/articulos2.php" class="btn btn-primary">Ver articulos</a>
+                    <a href="http://localhost/proyecto-web/prograweb/articulos2.php" class="btn btn-primary">Ver articulos</a>
                 </div>
             </div>
 
