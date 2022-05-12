@@ -16,7 +16,7 @@
 
 <body>
     <!--HEADER-->
-    <?php include("./templates/header.php")?>
+    <?php include("./templates/header1.php")?>
 
     <div class="text-center">
             <h1 aling="center"><b><i>BIENVENIDO</i></b></h1>

@@ -1,37 +1,25 @@
-<?php
-$host = "localhost";
-$usuario = "root";
-$clave = "";
-$bd = "proyectoweb";
-$conexion = mysqli_connect($host, $usuario, $clave, $bd);
-?>
 <?php 
-session_start();
- $email = $_POST['email'];
+require 'conbd.php';
+ $correo = $_POST['email'];
  $pass = $_POST['password'];
- $rol = "escritor";
- $rol2="usuario";
 
-
- $query = mysqli_query($conexion,"SELECT * FROM usuarios WHERE email = '".$email."' and contraseña ='".$pass."' and rol = '".$rol."'");
- $nr = mysqli_num_rows($query);
-
-    if($nr == 1)
-    {
-        header("location: ../admin.php");
-        $_SESSION['username'] = $email;
+ $sql = "SELECT * FROM usuarios WHERE email = '" . $correo . "'";
+ $result = mysqli_query($db,$sql);
+ 
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if ($row["rol"]=='usuario') {
+            echo 1;
+            header("Location: home.php",TRUE,301);
+            //$_SESSION["user"]=$correo;
+            //$_SESSION["rol"]=$row["rol"];
+        }else if($row["rol"]=='escritor'){
+            echo 2;
+            header("Location: home.php",TRUE,301);
+        }
         
-    }else if ($nr ==0)
-    {
-        header("Location:../home.php");
+    } else {
+        echo "correo ú contraseña incorrectos";
     }
- 
-    $q= mysqli_query($conexion,"SELECT * FROM usuarios WHERE email = '".$email."' and contraseña ='".$pass."' and rol = '".$rol2."'");
-    $n = mysqli_num_rows($q);
-    if($n == 1)
-    {
-        header("location: ../home.php");
-        $_SESSION['username'] = $email;
-    }
- 
+    mysqli_close($db);
 ?>

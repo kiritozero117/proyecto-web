@@ -1,25 +1,20 @@
-<?php
-$host = "localhost";
-$usuario = "root";
-$clave = "";
-$bd = "proyectoweb";
-$conexion = mysqli_connect($host, $usuario, $clave, $bd);
-?>
+<?php                    
+require 'conbd.php';
+                    
+$correo = $_POST["correo"];
+$pass = $_POST["pass"];
+$rol = 'usuario';
+$nombre=$_POST["nombre"];
+$sql="INSERT INTO usuarios (id,email,contraseña,rol,nombre) VALUES 
+(4,'$correo', '$pass','$rol','$nombre')";
 
-<?php
- require 'conexion.php';
- if(isset($_POST['guardar'])){
-    $id = 3;
-    $correo = $_POST['email'];
-    $constraseña = $_POST['password'];
-    $rol = 'usuario';
-    $nombre = $_POST['nombre'];
-    $query = "INSERT INTO usuarios(id,email,constraseña, rol, nombre) VALUES ('$id','$correo','$contrseña', '$rol', '$nombre')";
-    $result = mysqli_query($conexion, $query);
-    if(!$result){
-        die("fallo");
-    }
-    header("location: ../login.php");
-    
+$resultado= mysqli_query($db, $sql);
+if($resultado)
+{
+    echo "<script>alert('Se ha registrado exitosamente');"; 
+    header("Location: login.php",TRUE,301);
+}else{
+    echo "<script>alert('Error');window,history.go(-1);<script>";
 }
+
 ?>

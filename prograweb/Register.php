@@ -27,26 +27,25 @@ include "templates/header.php";
 
                 <h2 class="fw-bold text-center py-5">Registrate</h2>
                 
-                <form action="#">
+                <form action="Reg.php" method="post">
                     <div class="mb-4">
                         <label for="text" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" name="name">
+                        <input type="text" class="form-control" name="nombre" id="nombre">
                     </div>
                     <div class="mb-4">
                         <label for="email" class="form-label">Correo</label>
-                        <input type="email" class="form-control" name="email">
+                        <input type="email" class="form-control" name="correo" id="correo">
                     </div>
                     <div class="mb-4">
                         <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" name="password">
+                        <input type="password" class="form-control" name="pass" id="pass">
                     </div>
 
                     <div class="d-grid">
                         <button type="submit" class="btn btn-primary">Registrarse</button>
                     </div>
 
-                </form>
-
+                </form>                
             </div>
         </div>
     </div>

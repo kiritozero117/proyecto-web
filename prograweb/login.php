@@ -27,7 +27,7 @@ include "templates/header.php";
 
                 <h2 class="fw-bold text-center py-5">Bienvenido</h2>
                 
-                <form action="log.php">
+                <form action="log.php" method="post">
                     <div class="mb-4">
                         <label for="email" class="form-label">Correo</label>
                         <input type="email" class="form-control" name="email" id="email">
