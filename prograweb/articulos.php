@@ -14,7 +14,7 @@
 <html lang="es">
 
 <head>
-    <title>Rome Blog</title>
+    <title>Librairie Blog</title>
     <link rel="icon" type="image/png" href="../../img/icono.png" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -48,7 +48,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $row['id']; ?></h5>
                     <p class="card-text"><?php echo $row['nombre']; ?></p>
-                    <a href="#" class="btn btn-primary">Ver articulos</a>
+                    <a href="http://localhost/proyecto-web/prograweb/articulos2.php" class="btn btn-primary">Ver articulos</a>
                 </div>
             </div>
 
