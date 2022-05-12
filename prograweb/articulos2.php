@@ -1,13 +1,14 @@
 <?php    
     session_start();
-    $nombre = $_SESSION['user'];    
+    $nombre = $_SESSION['user'];   
+    $id=$_GET['var1']; 
     $servidor = "localhost";
     $usuarioBD = "root";
     $pwdBD = "060999";
     $nomBD = "proyectoweb";    
     $db = new mysqli($servidor,$usuarioBD,$pwdBD,$nomBD);    
-    $query = mysqli_query($db, "SELECT id, tema,subtema FROM articulos");    
-    
+    $query = mysqli_query($db, "SELECT id, tema,subtema FROM articulos where id_autor=$id");    
+    echo $id;
 ?>
 
 <!doctype html>
@@ -49,7 +50,7 @@
                     <h5 class="card-title"><?php echo $row['id']; ?></h5>
                     <p class="card-text"><?php echo $row['tema']; ?></p>
                     <p class="card-text"><?php echo $row['subtema']; ?></p>
-                    <a href="#" class="btn btn-primary">Ver articulos</a>
+                    <a href="#" class="btn btn-primary">Leer articulo</a>
                 </div>
             </div>
 
