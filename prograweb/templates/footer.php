@@ -2,7 +2,7 @@
 
     <div class="row">
         <div class="col-md-3">
-            <h3>Conoce nuestras redes</h3>            
+            <h3>Síguenos en nuestras redes</h3>            
             <p>
                 <a href="https://www.facebook.com/"><img src="img/facebook.png" alt="facebook" height="50px" width="50px"></a>
                 <a href="https://twitter.com/"><img src="img/twitter.png" alt="twitter" height="50px" width="50px"></a>
