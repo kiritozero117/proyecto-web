@@ -5,7 +5,7 @@ session_start();
 <html lang="es">
 
 <head>
-    <title>Rome Blog</title>
+    <title>Librairie Blog</title>
     <link rel="icon" type="image/png" href="img/icono.png" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,8 +33,8 @@ session_start();
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <!-- Brand -->
-                <a class="navbar-brand" href="/home.php"><img src="img/rome.png" alt="logo" width="125px" height="60px"></a>
-                <h1>Rome Blog</h1>
+                <a class="navbar-brand" href="/home.php"><img src="img/lib.png" alt="logo" width="125px" height="60px"></a>
+                <h1>Librairie Blog</h1>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 </ul> 
                 

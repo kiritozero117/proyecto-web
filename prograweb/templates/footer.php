@@ -10,7 +10,7 @@
             </p>
             <br>
             <h5>Email</h5>
-            <h6>romeblog@contactme.com</h6>
+            <h6>librairie@fr.com</h6>
         </div>
         <div class="col-md-6">
             <h3>Ubicanos</h3>
@@ -21,7 +21,7 @@
         </div>
     </div>
     <hr>
-    <h5>2021 Rome Blog <i class="fa fa-registered"></i></h5>
+    <h5>&copy; 2022 Librairie  <i class="fa fa-registered"></i></h5>
 
 </footer>
 
