@@ -2,7 +2,7 @@
 
     <div class="row">
         <div class="col-md-3">
-            <h3>Contáctanos</h3>            
+            <h3>Conoce nuestras redes</h3>            
             <p>
                 <a href="https://www.facebook.com/"><img src="img/facebook.png" alt="facebook" height="50px" width="50px"></a>
                 <a href="https://twitter.com/"><img src="img/twitter.png" alt="twitter" height="50px" width="50px"></a>
@@ -21,7 +21,7 @@
         </div>
     </div>
     <hr>
-    <h5>&copy; 2022 Librairie  <i class="fa fa-registered"></i></h5>
+    <h5>&copy; 2022 Librairie Blog</h5>
 
 </footer>
 
