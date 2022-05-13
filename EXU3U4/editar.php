@@ -31,7 +31,7 @@
                 <h1 class="text-center" style="color: white">Examen Unidad 3 y 4</h1>
             </div>
 
-            <nav class="navbar navbar-dark" style="background-color:rgb(117,117, 117);">
+            <nav class="navbar navbar-dark" style="background-color:rgb(37, 33, 61);">
                 <h1 class="text-center" style="color: white">Editar registro</h1>
                 <button class="btn btn-danger" type="submit" name="btncerrar">Regresar</button>
                 <?php
@@ -51,46 +51,44 @@
 
                         <div class="col-md-3">
                             <h1>Modificar datos</h1>
-                            <?php
 
-                            ?>
 
-                                    
-
-                                <input type="text" class="form-control mb-3" name="id" placeholder="id">
-                                <input type="text" class="form-control mb-3" name="Nombre" placeholder="Nombre">
-                                <input type="text" class="form-control mb-3" name="Edad" placeholder="Descripcion">
-                                <input type="text" class="form-control mb-3" name="Peso" placeholder="Precio">
+                            
+                                <input type="text" class="form-control mb-3" name="titulo" placeholder="Titulo">
+                                <input type="text" class="form-control mb-3" name="autor" placeholder="Autor">
+                                <input type="text" class="form-control mb-3" name="descripcion" placeholder="Descripción">
+                                <input type="text" class="form-control mb-3" name="precio" placeholder="Precio">
 
                                 <button name="enviar" type="submit" class="btn btn-success">Enviar</button>
-
 
                                 <?php
                                 
                                 if(isset($_POST['enviar']))
-                                {    
-                                    $id=$_POST['id'];
-                                    $nom = $_POST['Nombre'];
-                                    $edad = $_POST['Edad'];
-                                    $peso = $_POST['Peso'];
+                                {   
+                                    
+                                    $id = $_GET['id'];
+                                    $titulo = $_POST['titulo'];
+                                    $autor = $_POST['autor'];
+                                    $descripcion = $_POST['descripcion'];
+                                    $precio = $_POST['precio'];
 
-                                    if (! $_POST||trim($nom)=== '' ||trim($edad)=== '' ||trim($peso)=== '') {
+                                    if (! $_POST||trim($titulo)=== '' ||trim($autor)=== '' ||trim($descripcion)=== '' ||trim($precio)=== '') {
                                         echo "<script>alert('Llene todos los campos antes de continuar');window.location= 'crear.php' </script>";
                                     } else{
                                         $servidorBD = "localhost";
                                         $usuarioBD = "root";
-                                        $pwdBD = "060999";
+                                        $pwdBD = "";
                                         $nomBD = "examenu3u4";
     
                                         $conBD = mysqli_connect($servidorBD, $usuarioBD, $pwdBD, $nomBD);
                                         if (!$conBD) {
                                             die("La conexión fallo: " .mysqli_connect_error());
                                         } else {
-                                            mysqli_query($conBD, "SET NAME 'UTF8'");
+                                            mysqli_query($conBD, "SET NAMES 'UTF8'");
                                         }
                 
-                                        echo $id,$nom,$edad,$peso;
-                                        $sql = "UPDATE producto SET id=$id,nombre='$nom', des='$edad', precio='$peso' where id=$id";
+                
+                                        $sql = "UPDATE libros SET titulo = '$titulo', autor = '$autor', descripcion = '$descripcion', precio = ".$precio." WHERE id = '$id'";
                                         $res = mysqli_query($conBD, $sql);
                                         if ($res) {
                                             echo "Nuevo registro creado";
