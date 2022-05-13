@@ -6,7 +6,7 @@
     $pwdBD = "";
     $nomBD = "proyectoweb";    
     $db = new mysqli($servidor,$usuarioBD,$pwdBD,$nomBD);    
-    $query = mysqli_query($db, "SELECT tema,subtema,escritor,articulo,estatus,lugar,descu,notas,premios FROM articulo WHERE tema = 'Astrofisica'");    
+    $query = mysqli_query($db, "SELECT * FROM articulos WHERE tema = 'Astrofisica'");    
     
 ?>
 
@@ -45,9 +45,9 @@
             <div id="cartas" class="card">
                 <img class="card-img-top" src="img/af.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo $row['Titulo']; ?></h5>
-                    <p class="card-text"><?php echo $row['autor']; ?></p>
-                    <p class="card-text"><?php echo $row['contenido']; ?></p>
+                    <h5 class="card-title"><?php echo $row['tema']; ?></h5>
+                    <p class="card-text"><?php echo $row['escritor']; ?></p>
+                    <p class="card-text"><?php echo $row['notas']; ?></p>
                     <a href="#" class="btn btn-primary">Leer</a>
                 </div>
             </div>
