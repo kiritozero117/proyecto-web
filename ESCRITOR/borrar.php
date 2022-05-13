@@ -1,34 +1,34 @@
 <?php
 $servidor = "localhost";
 $usuario = "root";
-$pwd = "060999";
-$nombreBD = "examenu3u4";
+$pwd = "";
+$nombreBD = "proyectoweb";
 $conn = new mysqli($servidor, $usuario, $pwd, $nombreBD);
 
 if (!$conn) {
     echo 'Error de conexión: ' . mysqli_connect_error();
 }
-$id = $_GET['id_corredor'];
+$id = $_GET['id'];
+echo 'Id actual'.$id;
 //Iniciar sesión
-$sql = "SELECT id,nombre, des, precio FROM producto "
-    . "WHERE id = '$id'  ";
+$sql = "SELECT articulo, tema, subtema, lugar, descu, notas, premios FROM articulos"
+    . "WHERE id = '$id'";
 
 $resultado = mysqli_query($conn, $sql);
 if ($resultado->num_rows == 1) {
     session_start();
-    $corredor = mysqli_fetch_assoc($resultado);
+    $libros = mysqli_fetch_assoc($resultado);
 }
 if (isset($_POST['submit'])) {
 
+    $id_articulo = mysqli_real_escape_string($conn, $_POST['id']);
 
-    $id_corredor = mysqli_real_escape_string($conn, $_POST['id_corredor']);
 
-
-    $sql = "DELETE FROM producto  WHERE id = $id_corredor";
+    $sql = "DELETE FROM articulo WHERE id = '$id_articulo'";
     $resultado = mysqli_query($conn, $sql);
     if ($resultado) {
 
-        header('Location: ./pagina.php');
+        header('Location: ./index.php');
     } else {
         echo "Error: " . $sql . ":" . mysqli_error($conn);
     }
@@ -48,35 +48,53 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
-<body style="background-color: purple">
+<body style="background-color: cadetblue">
     <div class="container">
-       
+
 
         <br>
 
         <div class="card">
-            <div class="card-body" style="background-color: purple">
-                <a href="pagina.php" class="btn btn-dark" style="font-size: 18px; margin-bottom: 25px;"><i class="fa fa-arrow-circle-left"></i> Regresar </a>
+            <div class="card-body" style="background-color: cadetblue">
+                <a href="index.php" class="btn btn-dark" style="font-size: 18px; margin-bottom: 25px;"><i class="fa fa-arrow-circle-left"></i> Regresar </a>
                 <br>
                 <div class="row" style="border-color: white; border-radius: 15px;" align="center">
                     <div class="offset-md-2 col-md-8 offset-md-2">
                         <div class="card text-white" style="width: 70%; background-color: darkcyan;">
                             <div class="card-header" align="center">
-                                <h2>Eliminar Producto</h2>
+                                <h2>Eliminar libros</h2>
                             </div>
                             <br>
                             <form action="borrar.php" method="POST">
                                 <div class="card-body" align="left" style="padding-left: 15%; padding-right: 15%;">
-                                   <p>introduce el id a eliminar.</p>
-                                    <div class="form-group">
-                                        <input type="number" class="form-control" id="id_corredor" name="id_corredor" value="<?php echo $corredor['id'] ?>">
-                                    </div>
+                                    <label style="font-size: 18px;"><i class="fa fa-running"></i> tema </label>
+                                    <input readonly type="text" class="form-control" id="tema" name="titulo" value="<?php echo $libros['tema'] ?>" />
                                     <br>
-                                    <button type="submit" class="btn btn-danger" id="submit" name='submit' style="margin-bottom: 25px;"><i class="fa fa-trash-alt"></i> Eliminar</button>
-                            <br>
+                                    <label style="font-size: 18px;"><i class="fa fa-hashtag"></i> subtema </label>
+                                    <input readonly type="text" class="form-control" id="subtema" name="autor" value="<?php echo $libros['subtema'] ?>" />
+                                    <br>
+                                    <label style="font-size: 18px;"><i class="fa fa-weight"></i> articulo </label>
+                                    <input readonly type="text" class="form-control" id="articulo" name="articulo" value="<?php echo $libros['articulo'] ?>" />
+                                    <br>
+                                    <label style="font-size: 18px;"><i class="fa fa-weight"></i> lugar </label>
+                                    <input readonly type="text" class="form-control" id="lugar" name="lugar" value="<?php echo $libros['lugar'] ?>" />
+                                    <br>
+                                    <label style="font-size: 18px;"><i class="fa fa-weight"></i> descubridor </label>
+                                    <input readonly type="text" class="form-control" id="descubridor" name="descubridor" value="<?php echo $libros['descu'] ?>" />
+                                    <br>
+                                    <label style="font-size: 18px;"><i class="fa fa-weight"></i> notas </label>
+                                    <input readonly type="text" class="form-control" id="notas" name="descubridor" value="<?php echo $libros['notas'] ?>" />
+                                    <br>
+                                    <label style="font-size: 18px;"><i class="fa fa-weight"></i> premios </label>
+                                    <input readonly type="text" class="form-control" id="premios" name="premios" value="<?php echo $libros['premios'] ?>" />
+                                    <br>
+                                    <div class="form-group" style="display: none;">
+                                        <input type="number" class="form-control" id="id" name="id" value="<?php echo $id; ?>">
+                                    </div>
                                 </div>
+                                <button type="submit" class="btn btn-danger" id="submit" name='submit' style="margin-bottom: 25px;"><i class="fa fa-trash-alt"></i> Eliminar</button>
                             </form>
-                           
+                            <br>
                         </div>
                     </div>
                 </div>

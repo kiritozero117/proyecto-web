@@ -38,7 +38,7 @@
 
                     if(isset($_POST['btncerrar']))
                     {                      
-                        header('location: pagina.php');
+                        header('location: index.php');
                     }
                 ?>
             </nav>
@@ -78,7 +78,7 @@
                                         $servidorBD = "localhost";
                                         $usuarioBD = "root";
                                         $pwdBD = "";
-                                        $nomBD = "examenu3u4";
+                                        $nomBD = "index";
     
                                         $conBD = mysqli_connect($servidorBD, $usuarioBD, $pwdBD, $nomBD);
                                         if (!$conBD) {
@@ -88,7 +88,7 @@
                                         }
                 
                 
-                                        $sql = "UPDATE libros SET titulo = '$titulo', autor = '$autor', descripcion = '$descripcion', precio = ".$precio." WHERE id = '$id'";
+                                        $sql = "UPDATE articulo SET titulo = '$titulo', autor = '$autor', descripcion = '$descripcion', precio = ".$precio." WHERE id = '$id'";
                                         $res = mysqli_query($conBD, $sql);
                                         if ($res) {
                                             echo "Nuevo registro creado";
@@ -96,7 +96,7 @@
                                         else {
                                             echo "Error: ". $sql. ":". mysqli_error($conn);
                                         }                  
-                                        header('location: pagina.php');
+                                        header('location: index.php');
                                     }
                                    
                                 }

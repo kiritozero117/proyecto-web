@@ -1,16 +1,19 @@
-<!doctype html>
-<html lang="en">
-  <head>
+<?php
+
+session_start();
+
+$usuarioingresado = $_SESSION['nombre'];
+?>
+</body>
+<head>
     <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="login.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        
-</head>     
+  </head>
   <body>
       
     <!-- Optional JavaScript -->
@@ -19,80 +22,121 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
-  <body style="background-color: #e1e2e2">
+  <body>
+  <form method="POST">
       <div class="container-fluid">
             <div class="jumbotron-fluid" style="background-color: rgb(71, 13, 59);">
-                <h1 class="text-center" style="color: white;">Pagina de articulos</h1>
+                <h1 style="color: white" class="text-center">Escritores</h1>
             </div>
       
-      <nav class="navbar navbar-expand-md navbar-dark" style="background-color: rgb(117, 117, 117);">
-        <button class="btn btn-light btn-primary" type="button" data-toggle="collapse" data-target="#login" aria-expanded="false" aria-controls="login">Iniciar Sesión</button>        
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse" data-target="#login" aria-expanded="false">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <nav class="navbar justify-content-end navbar-dark" style="background-color:rgb(117, 117, 117);">
+      <h1 class="text-center" style="color: white" >Bienvenido:  </h1> <h1>__</h1> 
+      <?php
+
+               
+                echo "<h1 style='color: white'>  $usuarioingresado </h1>";
+                ?>
+                <button class="btn btn-danger" type="submit" name="btncerrar">Cerrar sesion</button>
+                <?php
+
+                    if(isset($_POST['btncerrar']))
+                    {
+                        session_destroy();
+                        header('location: index.php');
+                    }
+                ?>
     </nav>
-</div>
+         <div class="jumbotron">
+            <h1 class="text-center">Lista de productos</h1>
+            <br>
+            <form method="POST">
+               <button name="crear" class="btn btn-primary " type="submit" >Crear nuevo</button>
+            </form>
 
-    <div id="login" align="center" class="collapse">
-        <form method="POST">
-        <table>
-        <tr><td colspan="2" class="text-center" style="background-color:red;padding-bottom:10px;"><label>Login</label></td></tr>
-        <tr><td rowspan="6"></td><td><label>Usuario</label></td></tr>
-        <tr><td><input type="text" name="txtusuario" placeholder="Ingresar usuario" required /> </td></tr>
-        <tr><td><label>Contraseña</label></td></tr>
-        <tr><td><input type="password" name="txtpassword" placeholder="Contraseña" required /> </td></tr>
-        <tr><td><input type="submit" name="btningresar" value="Ingresar"/></td></tr>
-        </table>
-        </form>
-        </div>
-
-        
-  </body>
-</html>
-
-<?php
-
-if(isset($_POST['btningresar']))
-{
-	
-$servidor = "localhost";
-$usuario = "root";
-$pwd = "060999";
-$nombreBD = "examenu3u4";
-$conn = new mysqli($servidor, $usuario, $pwd, $nombreBD);
-
-if (!$conn) {
-    echo 'Error de conexión: ' . mysqli_connect_error();
-}
-
-    $usuario = mysqli_real_escape_string($conn, $_POST['txtusuario']);
-    $contra = mysqli_real_escape_string($conn, $_POST['txtpassword']);
-
-    $sql = "SELECT * FROM usuarios "
-        . "WHERE email = '$usuario' AND "
-        . "contra = '$contra'";
-
-    $resultado = mysqli_query($conn, $sql);
-    $mostrar = mysqli_fetch_array($resultado);
-    if ($resultado->num_rows == 1) {
-        session_start();
-       $nombreUsuario = mysqli_fetch_assoc($resultado);
-        $_SESSION['nombre'] = $nombreUsuario["nombre"];
-        $_SESSION['usuario'] = $nombreUsuario;
-        //$parts = explode('@', $_SESSION['usuario']['correo']);
-        //$domain = "@" . $parts[1];
-        
-        if ($mostrar['rol']=="admin") {
-            header('location: pagina.php');
-        } else {
          
-          
-            header('location: pagotro.php');
-        }
-    } else{
-      echo "<script>alert('Usuario o contraseña equivocados');window.location= 'index.php' </script>";
-    }
-    mysqli_free_result($resultado);
+         <?php
+            if(isset($_POST['crear']))
+            {
+                header('location: crear.php');
+            }
 
-}
-?>
+            if (isset($_POST['editar'])) {
+
+               header('location: editar.php');
+
+            }
+
+            if (isset($_POST['borrar'])) {
+
+               header('location: borrar.php');
+
+            }
+
+
+         ?>
+         
+        
+       
+
+    <?php
+            function obCone() {
+               $servidorBD = "localhost";
+               $usuarioBD = "root";
+               $pwdBD = "";
+               $nomBD = "proyectoweb";
+               $conBD = mysqli_connect($servidorBD, $usuarioBD, $pwdBD, $nomBD);
+               return $conBD;
+            }
+            function obUsu($conBD) {
+               $sql = "SELECT * FROM articulos";
+               $res = mysqli_query($conBD, $sql);
+               $filTa = "";
+               if (mysqli_num_rows($res) > 0) {
+                  while ($fila = mysqli_fetch_assoc($res)) {
+                     $filTa .= "<tr>";
+                     $filTa .= "<td>" . $id= $fila["id"] . "</td>";
+                     $filTa .= "<td>" . $id= $fila["id_autor"] . "</td>";
+                     $filTa .= "<td>" . $fila["tema"] . "</td>";
+                     $filTa .= "<td>" . $fila["subtema"] . "</td>";
+                     $filTa .= "<td>" . $fila["escritor"] . "</td>";
+                     $filTa .= "<td>" . $fila["estatus"] . "</td>";
+                     $filTa .= "<td>" . $fila["articulo"] . "</td>";
+                     $filTa .= "<td>" . $fila["fecha"] . "</td>";
+                     $filTa .= "<td>" . $fila["lugar"] . "</td>";
+                     $filTa .= "<td>" . $fila["descu"] . "</td>";
+                     $filTa .= "<td>" . $fila["premios"] . "</td>";
+                     $filTa .= "<td>" . $fila["notas"] . "</td>";
+                     $filTa .= "<td>" . "<button name='editar' type='submit' class='btn btn-success'>Editar</button>" . "</td>";
+                     $filTa .= "<td>" . "<button name='borrar' type='submit' class='btn btn-success' href='borrar.php?id=' . $id >Borrar</button>" . "</td>";
+                     $filTa .= "</tr>";
+                  }  
+               }
+               else {
+                  $filTa .= "<tr>";
+                  $filTa .= "<td>Sin resultados</td>";
+                  $filTa .= "</tr>";
+               }
+
+               return $filTa;
+            }
+               $conBD = obCone();
+               if ($conBD) {
+                  $filas = obUsu($conBD);
+                  $tabla = "
+                  <div class='border-success'>
+                     <table class='table table-responsive table-hover'>" ." <tr class='thead-dark'>" ." <th>ID</th>" 
+                     ."<th>Nombre</th>" . "<th>Descripcion</th>". "<th>Precio</th>". "<th>Editar</th>". "<th>Eliminar</th>"."</tr>" .$filas . "  </table>" ."</div>"; echo $tabla;
+               }
+               else {
+                  echo "<div class='alert-danger'>La conexión falló: " . mysqli_connect_error() . "</div>";
+               }
+
+               
+            
+         ?>
+
+      </div>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</div>
+  </body>
