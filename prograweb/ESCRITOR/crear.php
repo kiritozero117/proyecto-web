@@ -59,13 +59,13 @@
                                     <input type="text" class="form-control" id="premios" name="id_autor" placeholder="id" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> autor </label>
-                                    <input type="text" class="form-control" id="premios" name="autor" placeholder="autor" />
+                                    <input type="text" class="form-control" id="escritor" name="escritor" placeholder="autor" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-running"></i> tema </label>
-                                    <input type="text" class="form-control" id="tema" name="titulo" placeholder="Tema"  />
+                                    <input type="text" class="form-control" id="tema" name="tema" placeholder="Tema"  />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-hashtag"></i> subtema </label>
-                                    <input type="text" class="form-control" id="subtema" name="autor" placeholder="subtema" />
+                                    <input type="text" class="form-control" id="subtema" name="subtema" placeholder="subtema" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> articulo </label>
                                     <input type="text" class="form-control" id="articulo" name="articulo" placeholder="articulo" />
@@ -74,7 +74,7 @@
                                     <input type="text" class="form-control" id="lugar" name="lugar" placeholder="lugar" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> descubridor </label>
-                                    <input type="text" class="form-control" id="descubridor" name="descubridor" placeholder="descubridor" />
+                                    <input type="text" class="form-control" id="descu" name="descu" placeholder="descubridor" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> notas </label>
                                     <input type="text" class="form-control" id="notas" name="notas" placeholder="notas" />
@@ -83,7 +83,7 @@
                                     <input type="text" class="form-control" id="premios" name="premios" placeholder="premios" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> fecha </label>
-                                    <input type="text" class="form-control" id="premios" name="fecha" placeholder="fecha" />
+                                    <input type="text" class="form-control" id="fecha" name="fecha" placeholder="fecha" />
                                     <br>
 
                                 <button name="enviar" type="submit" class="btn btn-success">Enviar</button>
@@ -124,7 +124,8 @@
                                         }
                 
                 
-                                        $sql="INSERT INTO articulos VALUES('$id','$id_autor', '$escritor', '$articulo', '$tema', '$estatus', '$fecha', '$lugar','$descu','$notas','$premios');";
+                                        $sql="INSERT INTO articulos VALUES('$id','$id_autor', '$escritor', '$articulo', '$tema','$subtema', '$estatus', '$fecha', '$lugar','$descu','$notas','$premios');";
+                                        // $sql="INSERT INTO articulos VALUES('$id','$id_autor', '$escritor', 'hh', 'hh', 'hh', 'hh', 'hh','hk','ljlj','88');";
                                         $res = mysqli_query($conBD, $sql);
                                         if ($res) {
                                             echo "Nuevo registro creado";
