@@ -72,10 +72,27 @@ $usuarioingresado = $_SESSION['user'];
 
             }
 
-
+            if (isset($_POST['Publicar'])) {
+                                       $servidorBD = "localhost";
+                                        $usuarioBD = "root";
+                                        $pwdBD = "";
+                                        $nombreBD = "proyectoweb";
+    
+                                        $conBD = mysqli_connect($servidorBD, $usuarioBD, $pwdBD, $nombreBD);
+                                        if (!$conBD) {
+                                            die("La conexión fallo: " .mysqli_connect_error());
+                                        } else {
+                                            mysqli_query($conBD, "SET NAMES 'UTF8'");
+                                        }
+                                       // $id = mysqli_real_escape_string($conBD,$_POST['id']);  
+                                        $id=$_GET['id'];
+                                        echo "<script>alert('$id'); </script>";
+                                        $sql="UPDATE articulos SET estatus = 'Publicad' where id = '$id'";
+            }
          ?>
          
-        
+
+
        
 
     <?php
@@ -95,7 +112,7 @@ $usuarioingresado = $_SESSION['user'];
                   while ($fila = mysqli_fetch_assoc($res)) {
                      $filTa .= "<tr>";
                      $filTa .= "<td>" . $id= $fila["id"] . "</td>";
-                     $filTa .= "<td>" . $id= $fila["id_autor"] . "</td>";
+                     $filTa .= "<td>" . $fila["id_autor"] . "</td>";
                      $filTa .= "<td>" . $fila["tema"] . "</td>";
                      $filTa .= "<td>" . $fila["subtema"] . "</td>";
                      $filTa .= "<td>" . $fila["escritor"] . "</td>";
@@ -106,9 +123,14 @@ $usuarioingresado = $_SESSION['user'];
                      $filTa .= "<td>" . $fila["descu"] . "</td>";
                      $filTa .= "<td>" . $fila["premios"] . "</td>";
                      $filTa .= "<td>" . $fila["notas"] . "</td>";
+                     if($fila["estatus"] === "no publi"){
                      $filTa .= "<td>" . "<button name='editar' type='submit' class='btn btn-success'>Editar</button>" . "</td>";
-                     $filTa .= "<td>" . "<button name='borrar' type='submit' class='btn btn-success' href='borrar.php?id=' . $id >Borrar</button>" . "</td>";
-                     $filTa .= "<td>" . "<button name='Publicar' type='submit' class='btn btn-success'>Publicar</button>" . "</td>";
+                     $filTa .= "<td>" . "<button name='borrar' type='submit' class='btn btn-success' href='borrar.php?id=' . $id Borrar</button>" . "</td>";
+                     $filTa .= "<td>" . "<button name='Publicar' type='submit' class='btn btn-success' action=$id  Publicar</button>" . "</td>";
+                     }else{
+                        
+                        
+                     }
                      $filTa .= "</tr>";
                   }  
                }
