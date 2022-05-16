@@ -3,7 +3,7 @@ require 'conbd.php';
  $correo = $_POST['email'];
  $pass = $_POST['password'];
 
- $sql = "SELECT * FROM usuarios WHERE email = '" . $correo . "'and contraseña ='" . $pass ."'";
+ $sql = "SELECT * FROM users WHERE email = '" . $correo . "'and contraseña ='" . $pass ."'";
  $result = mysqli_query($db,$sql);
  
     if ($result->num_rows > 0) {
