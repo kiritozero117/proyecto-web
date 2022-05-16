@@ -1,112 +1,87 @@
-<?php
-$servidor = "localhost";
-$usuario = "root";
-$pwd = "";
-$nombreBD = "proyectoweb";
-$conn = new mysqli($servidor, $usuario, $pwd, $nombreBD);
-
-if (!$conn) {
-    echo 'Error de conexión: ' . mysqli_connect_error();
-}
-$id = $_GET['id'];
-echo 'Id actual'.$id;
-//Iniciar sesión
-$sql = "SELECT articulo, tema, subtema, lugar, descu, notas, premios FROM articulos"
-    . "WHERE id = '$id'";
-
-$resultado = mysqli_query($conn, $sql);
-if ($resultado->num_rows == 1) {
-    session_start();
-    $libros = mysqli_fetch_assoc($resultado);
-}
-if (isset($_POST['submit'])) {
-
-    $id_articulo = mysqli_real_escape_string($conn, $_POST['id']);
-
-
-    $sql = "DELETE FROM articulo WHERE id = '$id_articulo'";
-    $resultado = mysqli_query($conn, $sql);
-    if ($resultado) {
-
-        header('Location: ./index.php');
-    } else {
-        echo "Error: " . $sql . ":" . mysqli_error($conn);
-    }
-}
-?>
-<!doctype html>
-<html lang="en">
-
 <head>
-    <title>Eliminar</title>
+    <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body style="background-color: cadetblue">
-    <div class="container">
+<body>
 
-
-        <br>
-
-        <div class="card">
-            <div class="card-body" style="background-color: cadetblue">
-                <a href="index.php" class="btn btn-dark" style="font-size: 18px; margin-bottom: 25px;"><i class="fa fa-arrow-circle-left"></i> Regresar </a>
-                <br>
-                <div class="row" style="border-color: white; border-radius: 15px;" align="center">
-                    <div class="offset-md-2 col-md-8 offset-md-2">
-                        <div class="card text-white" style="width: 70%; background-color: darkcyan;">
-                            <div class="card-header" align="center">
-                                <h2>Eliminar libros</h2>
-                            </div>
-                            <br>
-                            <form action="borrar.php" method="POST">
-                                <div class="card-body" align="left" style="padding-left: 15%; padding-right: 15%;">
-                                    <label style="font-size: 18px;"><i class="fa fa-running"></i> tema </label>
-                                    <input readonly type="text" class="form-control" id="tema" name="titulo" value="<?php echo $libros['tema'] ?>" />
-                                    <br>
-                                    <label style="font-size: 18px;"><i class="fa fa-hashtag"></i> subtema </label>
-                                    <input readonly type="text" class="form-control" id="subtema" name="autor" value="<?php echo $libros['subtema'] ?>" />
-                                    <br>
-                                    <label style="font-size: 18px;"><i class="fa fa-weight"></i> articulo </label>
-                                    <input readonly type="text" class="form-control" id="articulo" name="articulo" value="<?php echo $libros['articulo'] ?>" />
-                                    <br>
-                                    <label style="font-size: 18px;"><i class="fa fa-weight"></i> lugar </label>
-                                    <input readonly type="text" class="form-control" id="lugar" name="lugar" value="<?php echo $libros['lugar'] ?>" />
-                                    <br>
-                                    <label style="font-size: 18px;"><i class="fa fa-weight"></i> descubridor </label>
-                                    <input readonly type="text" class="form-control" id="descubridor" name="descubridor" value="<?php echo $libros['descu'] ?>" />
-                                    <br>
-                                    <label style="font-size: 18px;"><i class="fa fa-weight"></i> notas </label>
-                                    <input readonly type="text" class="form-control" id="notas" name="descubridor" value="<?php echo $libros['notas'] ?>" />
-                                    <br>
-                                    <label style="font-size: 18px;"><i class="fa fa-weight"></i> premios </label>
-                                    <input readonly type="text" class="form-control" id="premios" name="premios" value="<?php echo $libros['premios'] ?>" />
-                                    <br>
-                                    <div class="form-group" style="display: none;">
-                                        <input type="number" class="form-control" id="id" name="id" value="<?php echo $id; ?>">
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-danger" id="submit" name='submit' style="margin-bottom: 25px;"><i class="fa fa-trash-alt"></i> Eliminar</button>
-                            </form>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
 </body>
 
-</html>
+<body style="background-color: #e1e2e2">
+    <form method="POST">
+        <div class="container-fluid">
+            <div class="jumbotron-fluid" style="background-color: rgb(71, 13, 59);">
+                <h1 class="text-center" style="color: white">Examen Unidad 3 y 4</h1>
+            </div>
+
+            <nav class="navbar navbar-dark" style="background-color:rgb(37, 33, 61);">
+                <h1 class="text-center" style="color: white">Editar registro</h1>
+                <button class="btn btn-danger" type="submit" name="btncerrar">Regresar</button>
+                <?php
+
+                    if(isset($_POST['btncerrar']))
+                    {                      
+                        header('location: index.php');
+                    }
+                ?>
+            </nav>
+
+            </head>
+
+            <body>
+                <div class="container mt-5">
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <form method="post" >
+                            <h1>Modificar datos</h1>
+                                <?php
+                                $id=$_GET['id'];
+                                echo "<h1> id actual".$id."  </h1>";
+
+                                        $servidorBD = "localhost";
+                                        $usuarioBD = "root";
+                                        $pwdBD = "";
+                                        $nomBD = "proyectoweb";
+    
+                                        $conBD = mysqli_connect($servidorBD, $usuarioBD, $pwdBD, $nomBD);
+                                        if (!$conBD) {
+                                            die("La conexión fallo: " .mysqli_connect_error());
+                                        } else {
+                                            mysqli_query($conBD, "SET NAMES 'UTF8'");
+                                        }
+                                        
+                                        $sql = "DELETE FROM articulos WHERE id = '$id'";
+                                        $res = mysqli_query($conBD, $sql);
+                                        if ($res) {
+                                            header('location: index.php'); 
+                                        }
+                                        else {
+                                            header('location: index.php'); 
+                                            echo "Error: ". $sql. ":". mysqli_error($conn);
+                                        }                  
+
+                                ?>
+
+
+                            </form>
+                        </div>
+
+            </body>
