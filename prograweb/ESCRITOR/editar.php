@@ -50,18 +50,9 @@
                     <div class="row">
 
                         <div class="col-md-3">
+                            <form method="post" >
                             <h1>Modificar datos</h1>
 
-
-                            <!-- <label style="font-size: 18px;"><i class="fa fa-weight"></i> id articulo</label>
-                                    <input type="text" class="form-control" id="id" name="id" placeholder="id" />
-                                    <br>
-                                    <label style="font-size: 18px;"><i class="fa fa-weight"></i> id autor</label>
-                                    <input type="text" class="form-control" id="id_autor" name="id_autor" placeholder="id" />
-                                    <br> -->
-                                    <!-- <label style="font-size: 18px;"><i class="fa fa-weight"></i> autor </label>
-                                    <input type="text" class="form-control" id="escritor" name="escritor" placeholder="autor" />
-                                    <br> -->
                                     <label style="font-size: 18px;"><i class="fa fa-running"></i> tema </label>
                                     <input type="text" class="form-control" id="tema" name="tema" placeholder="Tema"  />
                                     <br>
@@ -90,23 +81,29 @@
                                 <button name="enviar" type="submit" class="btn btn-success">Enviar</button>
 
                                 <?php
-                                
+                                $id=$_GET['id'];
+                                echo "<h1> id actual".$id."  </h1>";
                                 if(isset($_POST['enviar']))
                                 {   
                                     
-                                    $id = $_GET['id'];
-                                    $titulo = $_POST['titulo'];
-                                    $autor = $_POST['autor'];
-                                    $descripcion = $_POST['descripcion'];
-                                    $precio = $_POST['precio'];
+                                    
+                                    $articulo=$_POST['articulo'];
+                                    $tema=$_POST['tema'];
+                                    $subtema=$_POST['subtema'];
+                                    
+                                    $fecha=$_POST['fecha'];
+                                    $lugar=$_POST['lugar'];
+                                    $descu=$_POST['descu'];
+                                    $notas=$_POST['notas'];
+                                    $premios=$_POST['premios'];
 
-                                    if (! $_POST||trim($titulo)=== '' ||trim($autor)=== '' ||trim($descripcion)=== '' ||trim($precio)=== '') {
-                                        echo "<script>alert('Llene todos los campos antes de continuar');window.location= 'crear.php' </script>";
-                                    } else{
+                                    // if (! $_POST||trim($titulo)=== '' ||trim($autor)=== '' ||trim($descripcion)=== '' ||trim($precio)=== '') {
+                                    //     echo "<script>alert('Llene todos los campos antes de continuar');window.location= 'crear.php' </script>";
+                                    // } else{
                                         $servidorBD = "localhost";
                                         $usuarioBD = "root";
                                         $pwdBD = "";
-                                        $nomBD = "index";
+                                        $nomBD = "proyectoweb";
     
                                         $conBD = mysqli_connect($servidorBD, $usuarioBD, $pwdBD, $nomBD);
                                         if (!$conBD) {
@@ -114,20 +111,20 @@
                                         } else {
                                             mysqli_query($conBD, "SET NAMES 'UTF8'");
                                         }
+                                        
                 
-                
-                                        $sql = "UPDATE articulo SET titulo = '$titulo', autor = '$autor', descripcion = '$descripcion', precio = ".$precio." WHERE id = '$id'";
+                                        $sql = "UPDATE articulos SET articulo = '$articulo', tema = '$tema', fecha = '$fecha',lugar = '$lugar', descu = '$descu', notas = '$notas', premios= '$premios' WHERE id = '$id'";
                                         $res = mysqli_query($conBD, $sql);
                                         if ($res) {
-                                            echo "Nuevo registro creado";
+                                            echo "Registro modificado";
                                         }
                                         else {
                                             echo "Error: ". $sql. ":". mysqli_error($conn);
                                         }                  
-                                        header('location: index.php');
+                                        // header('location: index.php');
                                     }
                                    
-                                }
+                                // }
                                     
                                 ?>
 

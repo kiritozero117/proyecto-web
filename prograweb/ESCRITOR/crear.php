@@ -135,11 +135,7 @@
                                         // header('location: index.php');
                                     }
                                    
-<<<<<<< HEAD
-                                // }
-=======
-                               }
->>>>>>> 0b6fb4ebe8e51857a85ade5e1100b090f506d3b7
+                             }
                                     
                                 ?>
                             </form>
