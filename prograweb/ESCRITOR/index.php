@@ -108,6 +108,7 @@ $usuarioingresado = $_SESSION['user'];
                      $filTa .= "<td>" . $fila["notas"] . "</td>";
                      $filTa .= "<td>" . "<button name='editar' type='submit' class='btn btn-success'>Editar</button>" . "</td>";
                      $filTa .= "<td>" . "<button name='borrar' type='submit' class='btn btn-success' href='borrar.php?id=' . $id >Borrar</button>" . "</td>";
+                     $filTa .= "<td>" . "<button name='Publicar' type='submit' class='btn btn-success'>Publicar</button>" . "</td>";
                      $filTa .= "</tr>";
                   }  
                }
@@ -124,8 +125,10 @@ $usuarioingresado = $_SESSION['user'];
                   $filas = obUsu($conBD);
                   $tabla = "
                   <div class='border-success'>
-                     <table class='table table-responsive table-hover'>" ." <tr class='thead-dark'>" ." <th>ID</th>" 
-                     ."<th>Nombre</th>" . "<th>Descripcion</th>". "<th>Precio</th>". "<th>Editar</th>". "<th>Eliminar</th>"."</tr>" .$filas . "  </table>" ."</div>"; echo $tabla;
+                     <table class='table table-responsive table-hover'>" ." <tr class='thead-dark'>"  
+                     ."<th>ID</th>" . "<th>ID_Autor</th>". "<th>Tema</th>". "<th>Subtema</th>". "<th>Autor</th>". "<th>Estatus</th>" . "<th>Articulo</th>"
+                     . "<th>Fecha</th>"  . "<th>Lugar</th>"  . "<th>Descubridor</th>"  . "<th>Premios</th>"  . "<th>Notas</th>"  
+                     . "<th>Editar</th>". "<th>Eliminar</th>". "<th>Publicar</th>"."</tr>" .$filas . "  </table>" ."</div>"; echo $tabla;
                }
                else {
                   echo "<div class='alert-danger'>La conexión falló: " . mysqli_connect_error() . "</div>";
