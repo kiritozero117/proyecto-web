@@ -53,19 +53,19 @@
                     <div class="col-md-3">
                         <h1>Ingrese datos</h1>                        
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> id articulo</label>
-                                    <input type="text" class="form-control" id="premios" name="id" placeholder="id" />
+                                    <input type="text" class="form-control" id="id" name="id" placeholder="id" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> id autor</label>
-                                    <input type="text" class="form-control" id="premios" name="id_autor" placeholder="id" />
+                                    <input type="text" class="form-control" id="id_autor" name="id_autor" placeholder="id" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> autor </label>
-                                    <input type="text" class="form-control" id="premios" name="autor" placeholder="autor" />
+                                    <input type="text" class="form-control" id="escritor" name="escritor" placeholder="autor" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-running"></i> tema </label>
                                     <input type="text" class="form-control" id="tema" name="titulo" placeholder="Tema"  />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-hashtag"></i> subtema </label>
-                                    <input type="text" class="form-control" id="subtema" name="autor" placeholder="subtema" />
+                                    <input type="text" class="form-control" id="subtema" name="subtema" placeholder="subtema" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> articulo </label>
                                     <input type="text" class="form-control" id="articulo" name="articulo" placeholder="articulo" />
@@ -108,7 +108,7 @@
                                     $premios=$_POST['premios'];
 
 
-                                    if (! $_POST||trim($id)=== '' ||trim($id_autor)=== '' ||trim($escritor)=== ''||trim($articulo)=== '' ||trim($tema)=== ''||trim($subtema)=== '' ||trim($estatus)=== '' ||trim($fecha)==='' ||trim($lugar)==='' ||trim($descu)==='' ||trim($notas)==='' ||trim($premios)=== '') {
+                                    if ($_POST||trim($id)=== '' ||trim($id_autor)=== '' ||trim($escritor)=== ''||trim($articulo)=== '' ||trim($tema)=== ''||trim($subtema)=== '' ||trim($estatus)=== '' ||trim($fecha)==='' ||trim($lugar)==='' ||trim($descu)==='' ||trim($notas)==='' ||trim($premios)=== '') {
                                         echo "<script>alert('Llene todos los campos antes de continuar');window.location= 'crear.php' </script>";
                                     } else{
                                         $servidorBD = "localhost";
