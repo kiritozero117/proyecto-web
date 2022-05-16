@@ -30,11 +30,11 @@ session_start();
             </div>
       
       <nav class="navbar justify-content-end navbar-dark" style="background-color:rgb(117, 117, 117);">
-      <h1 class="text-center" style="color: white" >Bienvenido:  </h1> <h1>__</h1> 
+      <h1 class="text-center" style="color: white" >Bienvenido:  </h1> <h1>  </h1> 
       <?php
 
                
-                echo "<h1 style='color: white'>  $usuarioingresado </h1>";
+                echo "<h1 style='color: white'> Admin </h1>";
                 ?>
                 <button class="btn btn-danger" type="submit" name="btncerrar">Cerrar sesion</button>
                 <?php
@@ -109,13 +109,13 @@ session_start();
                      $filTa .= "<td>" . $fila["descu"] . "</td>";
                      $filTa .= "<td>" . $fila["premios"] . "</td>";
                      $filTa .= "<td>" . $fila["notas"] . "</td>";
-                     if ($fila["estatus"] === 'no publi'){
-                     $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='editar.php?id=$id'>". "<button name='editar' type='submit' class='btn btn-success'>Editar</button>" ."</form>". "</td>";
-                     $filTa .= "<td>" . "<button name='borrar' type='submit' class='btn btn-success' href='borrar.php?id=' . $id >Borrar</button>" . "</td>";
-                     $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='Publicar.php?id=$id'>"."<button name='Publicar' type='submit' class='btn btn-success'>Publicar</button>"."</form>" . "</td>";
-                     }
+                     if ($fila["estatus"] === 'Publicad' || $fila["estatus"] === 'publicad'){
+                    }
                      else{
-
+                        $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='editar.php?id=$id'>". "<button name='editar' type='submit' class='btn btn-success'>Editar</button>" ."</form>". "</td>";
+                        $filTa .= "<td>" . "<button name='borrar' type='submit' class='btn btn-success' href='borrar.php?id=' . $id Borrar</button>" . "</td>";
+                        $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='Publicar.php?id=$id'>"."<button name='Publicar' type='submit' class='btn btn-success'>Publicar</button>"."</form>" . "</td>";
+                       
                      }
                      $filTa .= "</tr>";
                   }  
