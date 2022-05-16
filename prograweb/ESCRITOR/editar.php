@@ -53,11 +53,39 @@
                             <h1>Modificar datos</h1>
 
 
-                            
-                                <input type="text" class="form-control mb-3" name="titulo" placeholder="Titulo">
-                                <input type="text" class="form-control mb-3" name="autor" placeholder="Autor">
-                                <input type="text" class="form-control mb-3" name="descripcion" placeholder="Descripción">
-                                <input type="text" class="form-control mb-3" name="precio" placeholder="Precio">
+                            <!-- <label style="font-size: 18px;"><i class="fa fa-weight"></i> id articulo</label>
+                                    <input type="text" class="form-control" id="id" name="id" placeholder="id" />
+                                    <br>
+                                    <label style="font-size: 18px;"><i class="fa fa-weight"></i> id autor</label>
+                                    <input type="text" class="form-control" id="id_autor" name="id_autor" placeholder="id" />
+                                    <br> -->
+                                    <!-- <label style="font-size: 18px;"><i class="fa fa-weight"></i> autor </label>
+                                    <input type="text" class="form-control" id="escritor" name="escritor" placeholder="autor" />
+                                    <br> -->
+                                    <label style="font-size: 18px;"><i class="fa fa-running"></i> tema </label>
+                                    <input type="text" class="form-control" id="tema" name="tema" placeholder="Tema"  />
+                                    <br>
+                                    <label style="font-size: 18px;"><i class="fa fa-hashtag"></i> subtema </label>
+                                    <input type="text" class="form-control" id="subtema" name="subtema" placeholder="subtema" />
+                                    <br>
+                                    <label style="font-size: 18px;"><i class="fa fa-weight"></i> articulo </label>
+                                    <textarea name="articulo" type="text" class="form-control" id="articulo" name="articulo" placeholder="articulo"></textarea>
+                                    <br>
+                                    <label style="font-size: 18px;"><i class="fa fa-weight"></i> lugar </label>
+                                    <input type="text" class="form-control" id="lugar" name="lugar" placeholder="lugar" />
+                                    <br>
+                                    <label style="font-size: 18px;"><i class="fa fa-weight"></i> descubridor </label>
+                                    <input type="text" class="form-control" id="descu" name="descu" placeholder="descubridor" />
+                                    <br>
+                                    <label style="font-size: 18px;"><i class="fa fa-weight"></i> notas </label>
+                                    <input type="text" class="form-control" id="notas" name="notas" placeholder="notas" />
+                                    <br>
+                                    <label style="font-size: 18px;"><i class="fa fa-weight"></i> premios </label>
+                                    <input type="text" class="form-control" id="premios" name="premios" placeholder="premios" />
+                                    <br>
+                                    <label style="font-size: 18px;"><i class="fa fa-weight"></i> fecha </label>
+                                    <input type="text" class="form-control" id="fecha" name="fecha" placeholder="fecha" />
+                                    <br>
 
                                 <button name="enviar" type="submit" class="btn btn-success">Enviar</button>
 
