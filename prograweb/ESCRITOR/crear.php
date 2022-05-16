@@ -125,7 +125,6 @@
                 
                 
                                         $sql="INSERT INTO articulos VALUES('$id','$id_autor', '$escritor', '$articulo', '$tema','$subtema', '$estatus', '$fecha', '$lugar','$descu','$notas','$premios');";
-                                        // $sql="INSERT INTO articulos VALUES('$id','$id_autor', '$escritor', 'hh', 'hh', 'hh', 'hh', 'hh','hk','ljlj','88');";
                                         $res = mysqli_query($conBD, $sql);
                                         if ($res) {
                                             echo "Nuevo registro creado";
@@ -133,7 +132,7 @@
                                         else {
                                             echo "Error: ". $sql. ":". mysqli_error($conn);
                                         }                  
-                                        header('location: index.php');
+                                        // header('location: index.php');
                                     }
                                    
                                }
