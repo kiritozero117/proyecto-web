@@ -82,7 +82,7 @@
 
                                 <?php
                                 $id=$_GET['id'];
-                                echo "<h1> id actual".$id."  </h1>";
+                               
                                 if(isset($_POST['enviar']))
                                 {   
                                     
