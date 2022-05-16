@@ -23,6 +23,7 @@ session_start();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
   <body>
+  
   <form method="POST">
       <div class="container-fluid">
             <div class="jumbotron-fluid" style="background-color: rgb(71, 13, 59);">
@@ -47,7 +48,7 @@ session_start();
                 ?>
     </nav>
          <div class="jumbotron">
-            <h1 class="text-center">Lista de productos</h1>
+            <h1 class="text-center">Lista de articulos</h1>
             <br>
             <form method="POST">
                <button name="crear" class="btn btn-primary " type="submit" >Crear nuevo</button>
@@ -113,7 +114,7 @@ session_start();
                     }
                      else{
                         $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='editar.php?id=$id'>". "<button name='editar' type='submit' class='btn btn-success'>Editar</button>" ."</form>". "</td>";
-                        $filTa .= "<td>" . "<button name='borrar' type='submit' class='btn btn-success' href='borrar.php?id=' . $id Borrar</button>" . "</td>";
+                        $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='editar.php?id=$id'>". "<button name='borrar' type='submit' class='btn btn-success'> Borrar</button>" . "</form>"."</td>";
                         $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='Publicar.php?id=$id'>"."<button name='Publicar' type='submit' class='btn btn-success'>Publicar</button>"."</form>" . "</td>";
                        
                      }
