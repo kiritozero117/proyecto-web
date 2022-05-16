@@ -2,7 +2,7 @@
 
 session_start();
 
-$usuarioingresado = $_SESSION['nombre'];
+$usuarioingresado = $_SESSION['user'];
 ?>
 </body>
 <head>
