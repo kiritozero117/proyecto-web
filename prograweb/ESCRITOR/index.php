@@ -2,7 +2,7 @@
 
 session_start();
 
-$usuarioingresado = $_SESSION['user'];
+// $usuarioingresado = $_SESSION['user'];
 ?>
 </body>
 <head>
@@ -95,7 +95,7 @@ $usuarioingresado = $_SESSION['user'];
                   while ($fila = mysqli_fetch_assoc($res)) {
                      $filTa .= "<tr>";
                      $filTa .= "<td>" . $id= $fila["id"] . "</td>";
-                     $filTa .= "<td>" . $id= $fila["id_autor"] . "</td>";
+                     $filTa .= "<td>" . $fila["id_autor"] . "</td>";
                      $filTa .= "<td>" . $fila["tema"] . "</td>";
                      $filTa .= "<td>" . $fila["subtema"] . "</td>";
                      $filTa .= "<td>" . $fila["escritor"] . "</td>";
@@ -106,7 +106,8 @@ $usuarioingresado = $_SESSION['user'];
                      $filTa .= "<td>" . $fila["descu"] . "</td>";
                      $filTa .= "<td>" . $fila["premios"] . "</td>";
                      $filTa .= "<td>" . $fila["notas"] . "</td>";
-                     $filTa .= "<td>" . "<button name='editar' type='submit' class='btn btn-success'>Editar</button>" . "</td>";
+                     echo "<h1> id actual".$id."  </h1>";
+                     $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='editar.php?id=$id'>". "<button name='editar' type='submit' class='btn btn-success'>Editar</button>" ."</form>". "</td>";
                      $filTa .= "<td>" . "<button name='borrar' type='submit' class='btn btn-success' href='borrar.php?id=' . $id >Borrar</button>" . "</td>";
                      $filTa .= "<td>" . "<button name='Publicar' type='submit' class='btn btn-success'>Publicar</button>" . "</td>";
                      $filTa .= "</tr>";
