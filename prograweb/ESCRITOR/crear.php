@@ -108,9 +108,9 @@
                                     $premios=$_POST['premios'];
 
 
-                                    if ($_POST||trim($id)=== '' ||trim($id_autor)=== '' ||trim($escritor)=== ''||trim($articulo)=== '' ||trim($tema)=== ''||trim($subtema)=== '' ||trim($estatus)=== '' ||trim($fecha)==='' ||trim($lugar)==='' ||trim($descu)==='' ||trim($notas)==='' ||trim($premios)=== '') {
+                                   if (!$_POST||trim($id)=== '') {
                                         echo "<script>alert('Llene todos los campos antes de continuar');window.location= 'crear.php' </script>";
-                                    } else{
+                                   } else{
                                         $servidorBD = "localhost";
                                         $usuarioBD = "root";
                                         $pwdBD = "";
@@ -136,7 +136,7 @@
                                         header('location: index.php');
                                     }
                                    
-                                }
+                               }
                                     
                                 ?>
                             </form>
