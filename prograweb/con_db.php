@@ -1,6 +1,6 @@
 <?php
  
-    //$nombre = $_SESSION['user'];    
+    $nombre = $_SESSION['user'];    
     $servidor = "localhost";
     $usuarioBD = "root";
     $pwdBD = "";

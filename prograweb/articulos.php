@@ -1,30 +1,21 @@
 <?php    
     session_start();
-    $nombre = $_SESSION['user'];    
+    // $nombre = $_SESSION['user'];    
     $servidor = "localhost";
     $usuarioBD = "root";
 
     $pwdBD = "";
     $nomBD = "proyectoweb";    
     $db = new mysqli($servidor,$usuarioBD,$pwdBD,$nomBD);    
-// <<<<<<< HEAD
-//     $query = mysqli_query($db, "SELECT tema, autor, imagen, contenido FROM articulos");    
-
-// =======
     $query = mysqli_query($db, "SELECT * FROM articulos");    
-    
->>>>>>> origin/Kevin_Valerio
+
 ?>
 
 <!doctype html>
 <html lang="es">
 
 <head>
-// <<<<<<< HEAD
-//     <title>Librairie Blog</title>
-// =======
-    <title>Librairie</title>
-// >>>>>>> origin/Kevin_Valerio
+
     <link rel="icon" type="image/png" href="../../img/icono.png" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -55,23 +46,12 @@
                 ?>            
                 
             <div id="cartas" class="card">
-// <<<<<<< HEAD
-//                 <div class="card-body">
-//                     <h5 class="card-title"><?php echo $row['id']; ?></h5>
-//                     <p class="card-text"><?php echo $row['nombre']; ?></p>
-//                     <?php $id_us=$row['id'];
-                     
-//                     ?>
-                   
-//                     <a href="http://localhost/proyecto-web/prograweb/articulos2.php?var1=<?php echo $id_us ?>" class="btn btn-primary">Ver articulos</a>
-// =======
                 <img class="card-img-top" src="img/dilettante.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $row['tema']; ?></h5>
                     <p class="card-text"><?php echo $row['escritor']; ?></p>
                     <p class="card-text"><?php echo $row['notas']; ?></p>
                     <a href="#" class="btn btn-primary">Leer</a>
-// >>>>>>> origin/Kevin_Valerio
                 </div>
             </div>
 
