@@ -4,7 +4,7 @@
     $servidor = "localhost";
     $usuarioBD = "root";
     $pwdBD = "";
-    $nomBD = "prograweb";    
+    $nomBD = "proyectoweb";    
     $db = new mysqli($servidor,$usuarioBD,$pwdBD,$nomBD);    
     $query = mysqli_query($db, "SELECT Titulo, autor, imagen, contenido, categoria FROM articulo WHERE categoria = 'Paso'");    
     
