@@ -114,7 +114,7 @@ session_start();
                     }
                      else{
                         $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='editar.php?id=$id'>". "<button name='editar' type='submit' class='btn btn-success'>Editar</button>" ."</form>". "</td>";
-                        $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='editar.php?id=$id'>". "<button name='borrar' type='submit' class='btn btn-success'> Borrar</button>" . "</form>"."</td>";
+                        $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='borrar.php?id=$id'>". "<button name='borrar' type='submit' class='btn btn-success'> Borrar</button>" . "</form>"."</td>";
                         $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='Publicar.php?id=$id'>"."<button name='Publicar' type='submit' class='btn btn-success'>Publicar</button>"."</form>" . "</td>";
                        
                      }
