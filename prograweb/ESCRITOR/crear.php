@@ -53,10 +53,10 @@
                     <div class="col-md-3">
                         <h1>Ingrese datos</h1>                        
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> id articulo</label>
-                                    <input type="text" class="form-control" id="premios" name="id" placeholder="id" />
+                                    <input type="text" class="form-control" id="id" name="id" placeholder="id" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> id autor</label>
-                                    <input type="text" class="form-control" id="premios" name="id_autor" placeholder="id" />
+                                    <input type="text" class="form-control" id="id_autor" name="id_autor" placeholder="id" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> autor </label>
                                     <input type="text" class="form-control" id="escritor" name="escritor" placeholder="autor" />
@@ -108,7 +108,7 @@
                                     $premios=$_POST['premios'];
 
 
-                                    if (! $_POST||trim($id)=== '' ||trim($id_autor)=== '' ||trim($escritor)=== ''||trim($articulo)=== '' ||trim($tema)=== ''||trim($subtema)=== '' ||trim($estatus)=== '' ||trim($fecha)==='' ||trim($lugar)==='' ||trim($descu)==='' ||trim($notas)==='' ||trim($premios)=== '') {
+                                    if ($_POST||trim($id)=== '' ||trim($id_autor)=== '' ||trim($escritor)=== ''||trim($articulo)=== '' ||trim($tema)=== ''||trim($subtema)=== '' ||trim($estatus)=== '' ||trim($fecha)==='' ||trim($lugar)==='' ||trim($descu)==='' ||trim($notas)==='' ||trim($premios)=== '') {
                                         echo "<script>alert('Llene todos los campos antes de continuar');window.location= 'crear.php' </script>";
                                     } else{
                                         $servidorBD = "localhost";
