@@ -1,5 +1,5 @@
 <?php
-    include("templates/header.php");  
+     
     if(isset($_POST['tema']))
     {
         $tema=$_POST['tema'];
@@ -10,12 +10,7 @@
  
  ?>
  <div class="container">
-  <main>
-        <article> 
-            <?php  include("articulo.php"); ?>
-        </article>    
-</main>
-
+ 
 
 
 <div class="comentarios">
@@ -38,9 +33,10 @@
         if(strlen($_POST['comentario'])>=1 )
         {
             $comment=trim($_POST['comentario']);
-            $idu=$_SESSION["idu"];
-            $ida=$_SESSION["articulo"];
-            $consulta="INSERT INTO mensajes VALUES ($idu,$ida,'$comment')";
+            // $idu=$_SESSION["idu"];
+           
+            // $ida=$_SESSION["articulo"];
+            $consulta="INSERT INTO mensajes VALUES (1,1,'$comment')";
             $resultado=mysqli_query($db,$consulta);
             if($resultado){
                 ?>
