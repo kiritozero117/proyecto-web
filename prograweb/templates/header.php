@@ -42,8 +42,8 @@ session_start();
                 <div class="dropdown show">
                     <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/user.png" alt="logo" width="50px" height="50px"></a>
                     <div class="dropdown-menu dropdown-menu-sm-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Iniciar Sesion</a>
-                        <a class="dropdown-item" href="#">Registrarse</a>
+                        <a class="dropdown-item" href="login.php">Iniciar Sesion</a>
+                        <a class="dropdown-item" href="Register.php">Registrarse</a>
                     </div>
 
 
