@@ -10,7 +10,7 @@ require 'conbd.php';
         $row = $result->fetch_assoc();
         if ($row["rol"]=='usuario') {
             echo 1;
-            header("Location: home1.php",TRUE,301);
+            header("Location: home.php",TRUE,301);
             //$_SESSION["user"]=$correo;
             //$_SESSION["rol"]=$row["rol"];
         }else if($row["rol"]=='escritor'){
