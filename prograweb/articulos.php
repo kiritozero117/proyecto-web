@@ -4,9 +4,9 @@
     $servidor = "localhost";
     $usuarioBD = "root";
     $pwdBD = "";
-    $nomBD = "prograweb";    
+    $nomBD = "proyectoweb";    
     $db = new mysqli($servidor,$usuarioBD,$pwdBD,$nomBD);    
-    $query = mysqli_query($db, "SELECT Titulo, autor, imagen, contenido FROM articulo");    
+    $query = mysqli_query($db, "SELECT * FROM articulos");    
     
 ?>
 
@@ -14,7 +14,7 @@
 <html lang="es">
 
 <head>
-    <title>Rome Blog</title>
+    <title>Librairie</title>
     <link rel="icon" type="image/png" href="../../img/icono.png" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -43,11 +43,11 @@
                 ?>            
                 
             <div id="cartas" class="card">
-                <img class="card-img-top" src="data:image/jpg;base64, <?php echo base64_encode($row['imagen']); ?>" alt="Card image cap">
+                <img class="card-img-top" src="img/dilettante.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo $row['Titulo']; ?></h5>
-                    <p class="card-text"><?php echo $row['autor']; ?></p>
-                    <p class="card-text"><?php echo $row['contenido']; ?></p>
+                    <h5 class="card-title"><?php echo $row['tema']; ?></h5>
+                    <p class="card-text"><?php echo $row['escritor']; ?></p>
+                    <p class="card-text"><?php echo $row['notas']; ?></p>
                     <a href="#" class="btn btn-primary">Leer</a>
                 </div>
             </div>
