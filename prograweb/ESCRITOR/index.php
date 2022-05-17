@@ -48,7 +48,7 @@ session_start();
          <?php
             if(isset($_POST['crear']))
             {
-                header('location: crear2.php');
+                header('location: crear.php');
             }
 
             if (isset($_POST['editar'])) {
