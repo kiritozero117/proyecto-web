@@ -50,35 +50,16 @@
                     <div class="row">
 
                         <div class="col-md-3">
+                            <form method="post" >
                             <h1>Modificar datos</h1>
-
-
-                            
-                                <input type="text" class="form-control mb-3" name="titulo" placeholder="Titulo">
-                                <input type="text" class="form-control mb-3" name="autor" placeholder="Autor">
-                                <input type="text" class="form-control mb-3" name="descripcion" placeholder="Descripción">
-                                <input type="text" class="form-control mb-3" name="precio" placeholder="Precio">
-
-                                <button name="enviar" type="submit" class="btn btn-success">Enviar</button>
-
                                 <?php
-                                
-                                if(isset($_POST['enviar']))
-                                {   
-                                    
-                                    $id = $_GET['id'];
-                                    $titulo = $_POST['titulo'];
-                                    $autor = $_POST['autor'];
-                                    $descripcion = $_POST['descripcion'];
-                                    $precio = $_POST['precio'];
+                                $id=$_GET['id'];
+                                echo "<h1> id actual".$id."  </h1>";
 
-                                    if (! $_POST||trim($titulo)=== '' ||trim($autor)=== '' ||trim($descripcion)=== '' ||trim($precio)=== '') {
-                                        echo "<script>alert('Llene todos los campos antes de continuar');window.location= 'crear.php' </script>";
-                                    } else{
                                         $servidorBD = "localhost";
                                         $usuarioBD = "root";
                                         $pwdBD = "";
-                                        $nomBD = "index";
+                                        $nomBD = "proyectoweb";
     
                                         $conBD = mysqli_connect($servidorBD, $usuarioBD, $pwdBD, $nomBD);
                                         if (!$conBD) {
@@ -86,20 +67,20 @@
                                         } else {
                                             mysqli_query($conBD, "SET NAMES 'UTF8'");
                                         }
-                
-                
-                                        $sql = "UPDATE articulo SET titulo = '$titulo', autor = '$autor', descripcion = '$descripcion', precio = ".$precio." WHERE id = '$id'";
+                                        
+                                        $sql="UPDATE articulos SET estatus = 'Publicad' where id = '$id'";
                                         $res = mysqli_query($conBD, $sql);
                                         if ($res) {
-                                            echo "Nuevo registro creado";
+                                            header('location: index.php'); 
                                         }
                                         else {
+                                            header('location: index.php'); 
                                             echo "Error: ". $sql. ":". mysqli_error($conn);
                                         }                  
-                                        header('location: index.php');
-                                    }
+                                        // header('location: index.php');
+                                    
                                    
-                                }
+                                // }
                                     
                                 ?>
 

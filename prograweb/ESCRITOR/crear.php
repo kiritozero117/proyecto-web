@@ -25,6 +25,7 @@
 </body>
 
 <body style="background-color: #e1e2e2">
+<!--  -->
     <form method="POST">
         <div class="container-fluid">
             <div class="jumbotron-fluid" style="background-color: rgb(71, 13, 59);">
@@ -53,28 +54,28 @@
                     <div class="col-md-3">
                         <h1>Ingrese datos</h1>                        
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> id articulo</label>
-                                    <input type="text" class="form-control" id="premios" name="id" placeholder="id" />
+                                    <input type="text" class="form-control" id="id" name="id" placeholder="id" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> id autor</label>
-                                    <input type="text" class="form-control" id="premios" name="id_autor" placeholder="id" />
+                                    <input type="text" class="form-control" id="id_autor" name="id_autor" placeholder="id" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> autor </label>
-                                    <input type="text" class="form-control" id="premios" name="autor" placeholder="autor" />
+                                    <input type="text" class="form-control" id="escritor" name="escritor" placeholder="autor" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-running"></i> tema </label>
-                                    <input type="text" class="form-control" id="tema" name="titulo" placeholder="Tema"  />
+                                    <input type="text" class="form-control" id="tema" name="tema" placeholder="Tema"  />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-hashtag"></i> subtema </label>
-                                    <input type="text" class="form-control" id="subtema" name="autor" placeholder="subtema" />
+                                    <input type="text" class="form-control" id="subtema" name="subtema" placeholder="subtema" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> articulo </label>
-                                    <input type="text" class="form-control" id="articulo" name="articulo" placeholder="articulo" />
+                                    <textarea name="articulo" type="text" class="form-control" id="articulo" name="articulo" placeholder="articulo"></textarea>
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> lugar </label>
                                     <input type="text" class="form-control" id="lugar" name="lugar" placeholder="lugar" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> descubridor </label>
-                                    <input type="text" class="form-control" id="descubridor" name="descubridor" placeholder="descubridor" />
+                                    <input type="text" class="form-control" id="descu" name="descu" placeholder="descubridor" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> notas </label>
                                     <input type="text" class="form-control" id="notas" name="notas" placeholder="notas" />
@@ -83,7 +84,7 @@
                                     <input type="text" class="form-control" id="premios" name="premios" placeholder="premios" />
                                     <br>
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> fecha </label>
-                                    <input type="text" class="form-control" id="premios" name="fecha" placeholder="fecha" />
+                                    <input type="text" class="form-control" id="fecha" name="fecha" placeholder="fecha" />
                                     <br>
 
                                 <button name="enviar" type="submit" class="btn btn-success">Enviar</button>
@@ -108,9 +109,9 @@
                                     $premios=$_POST['premios'];
 
 
-                                    if (! $_POST||trim($id)=== '' ||trim($id_autor)=== '' ||trim($escritor)=== ''||trim($articulo)=== '' ||trim($tema)=== ''||trim($subtema)=== '' ||trim($estatus)=== '' ||trim($fecha)==='' ||trim($lugar)==='' ||trim($descu)==='' ||trim($notas)==='' ||trim($premios)=== '') {
+                                   if (!$_POST||trim($id)=== '') {
                                         echo "<script>alert('Llene todos los campos antes de continuar');window.location= 'crear.php' </script>";
-                                    } else{
+                                   } else{
                                         $servidorBD = "localhost";
                                         $usuarioBD = "root";
                                         $pwdBD = "";
@@ -124,7 +125,7 @@
                                         }
                 
                 
-                                        $sql="INSERT INTO articulos VALUES('$id','$id_autor', '$escritor', '$articulo', '$tema', '$estatus', '$fecha', '$lugar','$descu','$notas','$premios');";
+                                        $sql="INSERT INTO articulos VALUES('$id','$id_autor', '$escritor', '$articulo', '$tema','$subtema', '$estatus', '$fecha', '$lugar','$descu','$notas','$premios');";
                                         $res = mysqli_query($conBD, $sql);
                                         if ($res) {
                                             echo "Nuevo registro creado";
@@ -132,10 +133,10 @@
                                         else {
                                             echo "Error: ". $sql. ":". mysqli_error($conn);
                                         }                  
-                                        header('location: index.php');
+                                        // header('location: index.php');
                                     }
                                    
-                                }
+                             }
                                     
                                 ?>
                             </form>

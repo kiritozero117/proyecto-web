@@ -2,7 +2,7 @@
 
 session_start();
 
-$usuarioingresado = $_SESSION['nombre'];
+// $usuarioingresado = $_SESSION['user'];
 ?>
 </body>
 <head>
@@ -23,6 +23,7 @@ $usuarioingresado = $_SESSION['nombre'];
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
   <body>
+  
   <form method="POST">
       <div class="container-fluid">
             <div class="jumbotron-fluid" style="background-color: rgb(71, 13, 59);">
@@ -30,11 +31,11 @@ $usuarioingresado = $_SESSION['nombre'];
             </div>
       
       <nav class="navbar justify-content-end navbar-dark" style="background-color:rgb(117, 117, 117);">
-      <h1 class="text-center" style="color: white" >Bienvenido:  </h1> <h1>__</h1> 
+      <h1 class="text-center" style="color: white" >Bienvenido:  </h1> <h1>  </h1> 
       <?php
 
                
-                echo "<h1 style='color: white'>  $usuarioingresado </h1>";
+                echo "<h1 style='color: white'> Admin </h1>";
                 ?>
                 <button class="btn btn-danger" type="submit" name="btncerrar">Cerrar sesion</button>
                 <?php
@@ -47,7 +48,7 @@ $usuarioingresado = $_SESSION['nombre'];
                 ?>
     </nav>
          <div class="jumbotron">
-            <h1 class="text-center">Lista de productos</h1>
+            <h1 class="text-center">Lista de articulos</h1>
             <br>
             <form method="POST">
                <button name="crear" class="btn btn-primary " type="submit" >Crear nuevo</button>
@@ -72,10 +73,13 @@ $usuarioingresado = $_SESSION['nombre'];
 
             }
 
-
+            if (isset($_POST['Publicar'])) {
+               header('location: Publicar.php');              
+            }
          ?>
          
-        
+
+
        
 
     <?php
@@ -95,7 +99,7 @@ $usuarioingresado = $_SESSION['nombre'];
                   while ($fila = mysqli_fetch_assoc($res)) {
                      $filTa .= "<tr>";
                      $filTa .= "<td>" . $id= $fila["id"] . "</td>";
-                     $filTa .= "<td>" . $id= $fila["id_autor"] . "</td>";
+                     $filTa .= "<td>" . $fila["id_autor"] . "</td>";
                      $filTa .= "<td>" . $fila["tema"] . "</td>";
                      $filTa .= "<td>" . $fila["subtema"] . "</td>";
                      $filTa .= "<td>" . $fila["escritor"] . "</td>";
@@ -106,8 +110,14 @@ $usuarioingresado = $_SESSION['nombre'];
                      $filTa .= "<td>" . $fila["descu"] . "</td>";
                      $filTa .= "<td>" . $fila["premios"] . "</td>";
                      $filTa .= "<td>" . $fila["notas"] . "</td>";
-                     $filTa .= "<td>" . "<button name='editar' type='submit' class='btn btn-success'>Editar</button>" . "</td>";
-                     $filTa .= "<td>" . "<button name='borrar' type='submit' class='btn btn-success' href='borrar.php?id=' . $id >Borrar</button>" . "</td>";
+                     if ($fila["estatus"] === 'Publicad' || $fila["estatus"] === 'publicad'){
+                    }
+                     else{
+                        $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='editar.php?id=$id'>". "<button name='editar' type='submit' class='btn btn-success'>Editar</button>" ."</form>". "</td>";
+                        $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='borrar.php?id=$id'>". "<button name='borrar' type='submit' class='btn btn-success'> Borrar</button>" . "</form>"."</td>";
+                        $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='Publicar.php?id=$id'>"."<button name='Publicar' type='submit' class='btn btn-success'>Publicar</button>"."</form>" . "</td>";
+                       
+                     }
                      $filTa .= "</tr>";
                   }  
                }
@@ -124,8 +134,10 @@ $usuarioingresado = $_SESSION['nombre'];
                   $filas = obUsu($conBD);
                   $tabla = "
                   <div class='border-success'>
-                     <table class='table table-responsive table-hover'>" ." <tr class='thead-dark'>" ." <th>ID</th>" 
-                     ."<th>Nombre</th>" . "<th>Descripcion</th>". "<th>Precio</th>". "<th>Editar</th>". "<th>Eliminar</th>"."</tr>" .$filas . "  </table>" ."</div>"; echo $tabla;
+                     <table class='table table-responsive table-hover'>" ." <tr class='thead-dark'>"  
+                     ."<th>ID</th>" . "<th>ID_Autor</th>". "<th>Tema</th>". "<th>Subtema</th>". "<th>Autor</th>". "<th>Estatus</th>" . "<th>Articulo</th>"
+                     . "<th>Fecha</th>"  . "<th>Lugar</th>"  . "<th>Descubridor</th>"  . "<th>Premios</th>"  . "<th>Notas</th>"  
+                     . "<th>Editar</th>". "<th>Eliminar</th>". "<th>Publicar</th>"."</tr>" .$filas . "  </table>" ."</div>"; echo $tabla;
                }
                else {
                   echo "<div class='alert-danger'>La conexión falló: " . mysqli_connect_error() . "</div>";
