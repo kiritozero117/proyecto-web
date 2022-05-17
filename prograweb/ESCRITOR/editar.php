@@ -94,7 +94,7 @@
                                         }
                                         
                 
-                                        $sql = "UPDATE articulos SET articulo = '$articulo', tema = '$tema', fecha = '$fecha',lugar = '$lugar', descu = '$descu', notas = '$notas', premios= '$premios' WHERE id = '$id'";
+                                        $sql = "UPDATE articulos SET articulo = '$articulo', tema = '$tema', subtema = '$subtema', fecha = '$fecha',lugar = '$lugar', descu = '$descu', notas = '$notas', premios= '$premios' WHERE id = '$id'";
                                         $res = mysqli_query($conBD, $sql);
                                         if ($res) {
                                             echo "Registro modificado";
