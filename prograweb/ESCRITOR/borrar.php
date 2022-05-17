@@ -7,11 +7,7 @@
 
 <body>
     <form method="POST">
-     
-
-           
-                            
-                            
+ 
                                 <?php
                                 $id=$_GET['id'];
 
@@ -40,9 +36,5 @@
                                         }                  
 
                                 ?>
-
-
                             </form>
-                        
-
             </body>
