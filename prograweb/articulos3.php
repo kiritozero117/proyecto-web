@@ -62,6 +62,7 @@
                     <p class="card-text"><?php echo "Notas: ".$row['notas']; ?></p>
                     <p class="card-text"><?php echo "Premios ganados: ".$row['premios']; ?></p>
                     <p class="card-text"><?php echo $row['articulo']; ?></p>
+                    <a href="" class="btn btn-primary">publicar un Mensaje </a>
                 </div>
             </div>
             
@@ -83,7 +84,7 @@
                     <h5 class="card-title"><?php echo "ID usuario: ".$row['id_us']; ?></h5>
                     <p class="card-text"><?php echo "ID Articulo: ".$row['id_ar']; ?></p>
                     <p class="card-text"><?php echo "Mensaje: ".$row['mensaje']; ?></p>
-                    <a href="" class="btn btn-primary">publicar un Mensaje </a>
+                    
                 </div>
             </div>
             
