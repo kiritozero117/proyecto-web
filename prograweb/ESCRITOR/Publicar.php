@@ -46,10 +46,10 @@
                                         $sql="UPDATE articulos SET estatus = 'Publicad' where id = '$id'";
                                         $res = mysqli_query($conBD, $sql);
                                         if ($res) {
-                                            header('location: index.php'); 
+                                            header("location: index.php?nombre=".$nombre);
                                         }
                                         else {
-                                            header('location: index.php'); 
+                                            header("location: index.php?nombre=".$nombre);
                                             echo "Error: ". $sql. ":". mysqli_error($conn);
                                         }                  
                                         // header('location: index.php');

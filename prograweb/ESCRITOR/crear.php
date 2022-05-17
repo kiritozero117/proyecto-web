@@ -23,7 +23,7 @@
 
                     if(isset($_POST['btncerrar']))
                     {                      
-                        header('location: index.php');
+                        header("location: index.php?nombre=".$nombre);
                     }
                 ?>
             </nav>
@@ -34,8 +34,9 @@
             <div class="jumbotron">
                 <div class="row">
                     
-                    <div class="col-md-3">
-                        <h1>Ingrese datos</h1>                        
+                    <div class="row row-cols-md-3 mx-5">
+                        
+                        <br>                     
                                     <label style="font-size: 18px;"><i class="fa fa-weight"></i> id articulo</label>
                                     <input type="text" class="form-control" id="id" name="id" placeholder="id" />
                                     <br>

@@ -12,25 +12,20 @@
    </head>
 <body>
 <?php include("./templates/header.php") ?>
-    <form method="POST">
-        <div class="container-fluid">
-            <div class="jumbotron-fluid" style="background-color: rgb(71, 13, 59);">
-                <h1 class="text-center" style="color: white">Examen Unidad 3 y 4</h1>
-            </div>
-
+    <form method="POST" >
+    
             <nav class="navbar navbar-dark" style="background-color:rgb(37, 33, 61);">
                 <h1 class="text-center" style="color: white">Editar registro</h1>
                 <button class="btn btn-danger" type="submit" name="btncerrar">Regresar</button>
                 <?php
-
+                
                     if(isset($_POST['btncerrar']))
                     {                      
-                        header('location: index.php');
+                        $nombre=$_GET['nombre'];
+                        header("location: index.php?nombre=".$nombre);
                     }
                 ?>
             </nav>
-
-            </head>
 
             <body>
                 <div class="container mt-5">
@@ -69,6 +64,7 @@
 
                                 <?php
                                 $id=$_GET['id'];
+                                
                                
                                 if(isset($_POST['enviar']))
                                 {   
@@ -84,9 +80,7 @@
                                     $notas=$_POST['notas'];
                                     $premios=$_POST['premios'];
 
-                                    // if (! $_POST||trim($titulo)=== '' ||trim($autor)=== '' ||trim($descripcion)=== '' ||trim($precio)=== '') {
-                                    //     echo "<script>alert('Llene todos los campos antes de continuar');window.location= 'crear.php' </script>";
-                                    // } else{
+ 
                                         $servidorBD = "localhost";
                                         $usuarioBD = "root";
                                         $pwdBD = "";
@@ -108,15 +102,16 @@
                                         else {
                                             echo "Error: ". $sql. ":". mysqli_error($conn);
                                         }                  
-                                        // header('location: index.php');
+                                        
                                     }
-                                   
-                                // }
+
                                     
                                 ?>
 
 
                             </form>
+                            </div>
+                            </div>
                             <?php include("./templates/footer.php") ?>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

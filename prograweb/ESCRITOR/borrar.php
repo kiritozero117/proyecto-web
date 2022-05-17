@@ -27,7 +27,7 @@
                                         $res = mysqli_query($conBD, $sql);
                                         if ($res) {
                                             echo "<script>alert('Se borro el registro'.$id);window.location= 'index.php' </script>";
-                                            header('location: index.php'); 
+                                            header("location: index.php?nombre=".$nombre); 
                                         }
                                         else {
                                             // header('location: index.php');

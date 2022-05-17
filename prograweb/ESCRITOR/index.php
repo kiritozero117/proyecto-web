@@ -70,6 +70,7 @@
        
 
     <?php
+        
             function obCone() {
                $servidorBD = "localhost";
                $usuarioBD = "root";
@@ -79,6 +80,7 @@
                return $conBD;
             }
             function obUsu($conBD) {
+               $nombre=$_GET['nombre'];
                $sql = "SELECT * FROM articulos";
                $res = mysqli_query($conBD, $sql);
                $filTa = "";
@@ -100,9 +102,9 @@
                      if ($fila["estatus"] === 'Publicad' || $fila["estatus"] === 'publicad'){
                     }
                      else{
-                        $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='editar.php?id=$id'>". "<button name='editar' type='submit' class='btn btn-success'>Editar</button>" ."</form>". "</td>";
-                        $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='borrar.php?id=$id'>". "<button name='borrar' type='submit' class='btn btn-success'> Borrar</button>" . "</form>"."</td>";
-                        $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='Publicar.php?id=$id'>"."<button name='Publicar' type='submit' class='btn btn-success'>Publicar</button>"."</form>" . "</td>";
+                        $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='editar.php?id=$id&usuario=$nombre'>". "<button name='editar' type='submit' class='btn btn-success'>Editar</button>" ."</form>". "</td>";
+                        $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='borrar.php?id=$id&usuario=$nombre'>". "<button name='borrar' type='submit' class='btn btn-success'> Borrar</button>" . "</form>"."</td>";
+                        $filTa .= "<td>" ."<form id='formEditar' name='formEditar' method='post' action='Publicar.php?id=$id&usuario=$nombre'>"."<button name='Publicar' type='submit' class='btn btn-success'>Publicar</button>"."</form>" . "</td>";
                        
                      }
                      $filTa .= "</tr>";
