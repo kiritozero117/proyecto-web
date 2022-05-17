@@ -15,7 +15,8 @@ require 'conbd.php';
             //$_SESSION["rol"]=$row["rol"];
         }else if($row["rol"]=='escritor'){
             echo 2;
-            header("Location: home1.php",TRUE,301);
+            $nombre = $row["nombre"];
+            header("Location: ESCRITOR/index.php?nombre=".$nombre,TRUE,301);
         }
         
     } else {

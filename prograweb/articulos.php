@@ -7,7 +7,6 @@
     $nomBD = "proyectoweb";    
     $db = new mysqli($servidor,$usuarioBD,$pwdBD,$nomBD);    
     $query = mysqli_query($db, "SELECT id, nombre FROM usuarios");    
-    
 ?>
 
 <!doctype html>

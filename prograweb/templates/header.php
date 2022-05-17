@@ -44,6 +44,7 @@ session_start();
                     <div class="dropdown-menu dropdown-menu-sm-right" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="login.php">Iniciar Sesion</a>
                         <a class="dropdown-item" href="Register.php">Registrarse</a>
+                        <a class="dropdown-item" href="ModificarPerfil.php">Modificar Perfil</a>
                     </div>
 
 
