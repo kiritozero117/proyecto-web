@@ -1,10 +1,3 @@
-<?php
-
-session_start();
-
-// $usuarioingresado = $_SESSION['user'];
-?>
-
    <head>
    <title>Escritores</title>
    <link rel="icon" type="image/png" href="../../img/lib.png" />
@@ -23,17 +16,21 @@ session_start();
   <body>
   <?php include("./templates/header.php") ?>
   <form method="POST">
-  
+
       <?php        
-                echo "<h1 style='color: 'black'> Bienvenido:  Aldo </h1>";
+               if(isset($_GET)){
+                  $nombre=$_GET['nombre'];
+                  echo "<h1 style='color: 'black'> Bienvenido: ".$nombre."  </h1>";
+               }
+                
                 ?>
                 <button class="btn btn-danger" type="submit" name="btncerrar">Cerrar sesion</button>
                 <?php
 
                     if(isset($_POST['btncerrar']))
                     {
-                        session_destroy();
-                        header('location: index.php');
+                        
+                        header('location: ../logout.php');
                     }
                 ?>
     </nav>
@@ -48,7 +45,7 @@ session_start();
          <?php
             if(isset($_POST['crear']))
             {
-                header('location: crear2.php');
+                header('location: crear.php');
             }
 
             if (isset($_POST['editar'])) {
