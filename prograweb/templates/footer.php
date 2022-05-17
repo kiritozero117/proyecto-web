@@ -7,7 +7,7 @@
                 <a href="https://www.facebook.com/"><img src="img/facebook.png" alt="facebook" height="50px" width="50px"></a>
                 <a href="https://twitter.com/"><img src="img/twitter.png" alt="twitter" height="50px" width="50px"></a>
                 <a href="https://www.youtube.com/"><img src="img/youtube.png" alt="youtube" height="50px" width="50px"></a>
-            </p>
+            </p> 
             <br>
             <h5>Email</h5>
             <h6>librairie@fr.com</h6>

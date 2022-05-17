@@ -2,7 +2,7 @@
 session_start();
 ?>
 <!doctype html>
-<html lang="es">
+<html lang="es"> 
 
 <head>
     <title>Librairie Blog</title>
