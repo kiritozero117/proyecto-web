@@ -46,8 +46,8 @@
                 
             <div id="cartas" class="card">
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo $row['id']; ?></h5>
-                    <p class="card-text"><?php echo $row['nombre']; ?></p>
+                    <h5 class="card-title"><?php echo "ID: ".$row['id']; ?></h5>
+                    <p class="card-text"><?php echo "nombre: ".$row['nombre']; ?></p>
                     <?php $id_us=$row['id'];
                      
                     ?>

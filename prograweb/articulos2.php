@@ -47,9 +47,9 @@
                 
             <div id="cartas" class="card">
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo $row['id']; ?></h5>
-                    <p class="card-text"><?php echo $row['tema']; ?></p>
-                    <p class="card-text"><?php echo $row['subtema']; ?></p>
+                    <h5 class="card-title"><?php echo "ID Articulo: ".$row['id']; ?></h5>
+                    <p class="card-text"><?php echo "Tema: ".$row['tema']; ?></p>
+                    <p class="card-text"><?php echo "Subtema: ".$row['subtema']; ?></p>
                     <?php $id_us=$row['id'] ?>
                     <a href="http://localhost/proyecto-web/prograweb/articulos3.php?var1=<?php echo $id_us ?>" class="btn btn-primary">Leer articulo</a>
                 </div>
