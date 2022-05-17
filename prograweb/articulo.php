@@ -1,15 +1,15 @@
 <?php
     include("con_db.php"); 
-    $consulta="SELECT escritor, articulo,tema, fecha from articulos";
+    $id=$_SESSION["articulo"];
+    $consulta="SELECT nombre, mensaje, tema from mensajes JOIN usuarios ON usuarios.id= mensajes.id_us JOIN articulos ON articulos.id=mensajes.id_ar WHERE articulos.id='$id'";
     $resultado=mysqli_query($db,$consulta);
     if($resultado){
-        if($mostrar=mysqli_fetch_array($resultado)){
-            echo '<h3>';
-            echo $mostrar['tema']."</h3>";
-            echo "<strong>Autor:</strong> ";
-            echo $mostrar['escritor']."<br> <strong>Fecha:</strong>". $mostrar['fecha']."<br><br>";           
-            echo $mostrar['articulo']."<br>";
+        while($mostrar=mysqli_fetch_array($resultado)){
+            echo '<div class="card border-primary mb-3"><h5>';
+            echo $mostrar['nombre']."</h5>";
+            echo $mostrar['mensaje']."<br>";           
             
+            echo '</div>';
         }
     }
     else
@@ -17,4 +17,3 @@
         echo "Error al Consultar en la tabla";
     }
 ?>
-<strong></strong>
