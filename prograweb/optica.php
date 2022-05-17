@@ -1,6 +1,6 @@
 <?php    
     session_start();
-
+<<<<<<<< HEAD:prograweb/articulos3.php
     $nombre = $_SESSION['user'];   
     $id=$_GET['var1']; 
     $servidor = "localhost";
@@ -11,14 +11,27 @@
     $query = mysqli_query($db, "SELECT * FROM articulos where id=$id");   
     $query1 = mysqli_query($db, "SELECT * FROM mensajes where id_ar=$id");    
     echo $id;
+========
+    $nombre = $_SESSION['user'];    
+    $servidor = "localhost";
+    $usuarioBD = "root";
+    $pwdBD = "";
+    $nomBD = "proyectoweb";    
+    $db = new mysqli($servidor,$usuarioBD,$pwdBD,$nomBD);    
+    $query = mysqli_query($db, "SELECT tema,subtema,escritor,articulo,estatus,lugar,descu,notas,premios FROM articulos WHERE tema = 'Optica'");    
+    
+>>>>>>>> c987f30802bfc224272e43888bb71ae95887ae2f:prograweb/optica.php
 ?>
 
 <!doctype html>
 <html lang="es">
 
 <head>
+<<<<<<<< HEAD:prograweb/articulos3.php
     <title>Librairie Blog</title>
-
+========
+    <title>Librairie</title>
+>>>>>>>> c987f30802bfc224272e43888bb71ae95887ae2f:prograweb/optica.php
     <link rel="icon" type="image/png" href="../../img/icono.png" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,7 +48,11 @@
     <?php include("./templates/header.php")?>
 
     <div class="text-center">
+<<<<<<<< HEAD:prograweb/articulos3.php
             <h1 aling="center"><b><i>Articulo</i></b></h1>            
+========
+            <h1 aling="center"><b><i>ARTICULOS DE OPTICA</i></b></h1>            
+>>>>>>>> c987f30802bfc224272e43888bb71ae95887ae2f:prograweb/optica.php
             <hr class="my-4">
     </div>
 
@@ -43,6 +60,7 @@
         
         <?php
             $i = 0;
+<<<<<<<< HEAD:prograweb/articulos3.php
           
             while ($row = mysqli_fetch_array($query)) {
                 
@@ -65,12 +83,26 @@
                 </div>
             </div>
             
+========
+            while ($row = mysqli_fetch_array($query)) {
+                ?>            
+                
+            <div id="cartas" class="card">
+                <img class="card-img-top" src="img/opt.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $row['tema']; ?></h5>
+                    <p class="card-text"><?php echo $row['escritor']; ?></p>
+                    <p class="card-text"><?php echo $row['notas']; ?></p>
+                    <a href="#" class="btn btn-primary">Leer</a>
+                </div>
+            </div>
+>>>>>>>> c987f30802bfc224272e43888bb71ae95887ae2f:prograweb/optica.php
 
             <?php
             echo "<br>";
             }
             ?>
-
+<<<<<<<< HEAD:prograweb/articulos3.php
              <?php
             $i = 0;
           
@@ -92,7 +124,9 @@
             echo "<br>";
             }
             ?>
-
+            
+========
+>>>>>>>> c987f30802bfc224272e43888bb71ae95887ae2f:prograweb/optica.php
             
     </div>
         

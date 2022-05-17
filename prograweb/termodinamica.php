@@ -1,25 +1,20 @@
 <?php    
     session_start();
-
-    $nombre = $_SESSION['user'];   
-    $id=$_GET['var1']; 
+    $nombre = $_SESSION['user'];    
     $servidor = "localhost";
     $usuarioBD = "root";
-    $pwdBD = "060999";
+    $pwdBD = "";
     $nomBD = "proyectoweb";    
     $db = new mysqli($servidor,$usuarioBD,$pwdBD,$nomBD);    
-    $query = mysqli_query($db, "SELECT id, tema,subtema FROM articulos where id_autor=$id");    
-    echo $id;
-
+    $query = mysqli_query($db, "SELECT * FROM articulos WHERE tema = 'Termodinamica'");    
+    
 ?>
 
 <!doctype html>
 <html lang="es">
 
 <head>
-
-    <title>Librairie Blog</title>
-
+    <title>Librairie</title>
     <link rel="icon" type="image/png" href="../../img/icono.png" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,8 +31,7 @@
     <?php include("./templates/header.php")?>
 
     <div class="text-center">
-
-            <h1 aling="center"><b><i>Articulos</i></b></h1>            
+            <h1 aling="center"><b><i>ARTICULOS DE TERMODINAMICA</i></b></h1>            
             <hr class="my-4">
     </div>
 
@@ -45,19 +39,16 @@
         
         <?php
             $i = 0;
-
-          
             while ($row = mysqli_fetch_array($query)) {
-                
                 ?>            
                 
             <div id="cartas" class="card">
+                <img class="card-img-top" src="img/td.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo "ID Articulo: ".$row['id']; ?></h5>
-                    <p class="card-text"><?php echo "Tema: ".$row['tema']; ?></p>
-                    <p class="card-text"><?php echo "Subtema: ".$row['subtema']; ?></p>
-                    <?php $id_us=$row['id'] ?>
-                    <a href="http://localhost/proyecto-web/prograweb/articulos3.php?var1=<?php echo $id_us ?>" class="btn btn-primary">Leer articulo</a>
+                    <h5 class="card-title"><?php echo $row['tema']; ?></h5>
+                    <p class="card-text"><?php echo $row['escritor']; ?></p>
+                    <p class="card-text"><?php echo $row['notas']; ?></p>
+                    <a href="#" class="btn btn-primary">Leer</a>
                 </div>
             </div>
 
@@ -84,3 +75,15 @@
 </body>
 
 </html>
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
