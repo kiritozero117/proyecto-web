@@ -3,10 +3,10 @@
     $nombre = $_SESSION['user'];    
     $servidor = "localhost";
     $usuarioBD = "root";
-    $pwdBD = "";
-    $nomBD = "prograweb";    
+    $pwdBD = "060999";
+    $nomBD = "proyectoweb";    
     $db = new mysqli($servidor,$usuarioBD,$pwdBD,$nomBD);    
-    $query = mysqli_query($db, "SELECT Titulo, autor, imagen, contenido FROM articulo");    
+    $query = mysqli_query($db, "SELECT id, nombre FROM usuarios");    
     
 ?>
 
@@ -14,7 +14,7 @@
 <html lang="es">
 
 <head>
-    <title>Rome Blog</title>
+    <title>Librairie Blog</title>
     <link rel="icon" type="image/png" href="../../img/icono.png" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,7 +31,7 @@
     <?php include("./templates/header.php")?>
 
     <div class="text-center">
-            <h1 aling="center"><b><i>ARTICULOS</i></b></h1>            
+            <h1 aling="center"><b><i>Escritores</i></b></h1>            
             <hr class="my-4">
     </div>
 
@@ -39,16 +39,20 @@
         
         <?php
             $i = 0;
+          
             while ($row = mysqli_fetch_array($query)) {
+                
                 ?>            
                 
             <div id="cartas" class="card">
-                <img class="card-img-top" src="data:image/jpg;base64, <?php echo base64_encode($row['imagen']); ?>" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo $row['Titulo']; ?></h5>
-                    <p class="card-text"><?php echo $row['autor']; ?></p>
-                    <p class="card-text"><?php echo $row['contenido']; ?></p>
-                    <a href="#" class="btn btn-primary">Leer</a>
+                    <h5 class="card-title"><?php echo "ID: ".$row['id']; ?></h5>
+                    <p class="card-text"><?php echo "nombre: ".$row['nombre']; ?></p>
+                    <?php $id_us=$row['id'];
+                     
+                    ?>
+                   
+                    <a href="http://localhost/proyecto-web/prograweb/articulos2.php?var1=<?php echo $id_us ?>" class="btn btn-primary">Ver articulos</a>
                 </div>
             </div>
 
